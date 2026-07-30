@@ -10,24 +10,24 @@ pre : " <b> 5.5 </b> "
 
 ### 4.1. Chi phí
 
-Một số cách tối ưu chi phí đã phù hợp với dự án hiện tại:
+Một số biện pháp tối ưu chi phí phù hợp với dự án hiện tại gồm:
 
 - Dùng DynamoDB on-demand khi chưa có nhu cầu lớn.
-- Tránh bật SageMaker real-time endpoint nếu chưa cần thiết.
+- Tránh bật SageMaker real-time endpoint nếu chưa cần thiết; kiến trúc batch-first của dự án không yêu cầu endpoint chạy thường trực.
 - Dùng lifecycle policy cho S3 để quản lý dữ liệu cũ.
-- Dừng container khi không dùng đến.
+- Dừng container khi không sử dụng.
 
 ### 4.2. Bảo mật cơ bản
 
-- Không lưu access key cố định trong repo.
+- Không lưu access key cố định trong repository.
 - Dùng IAM role hoặc SSO thay vì key dài hạn.
-- Giới hạn quyền theo least privilege.
+- Giới hạn quyền theo nguyên tắc least privilege.
 - Bật Block Public Access cho bucket S3.
 - Đảm bảo biến môi trường nhạy cảm không bị commit vào git.
 
 ### 4.3. Clean-up để tránh phát sinh chi phí
 
-Sau khi test hoặc demo xong, nên làm các bước sau:
+Sau khi kiểm thử hoặc demo xong, nên thực hiện các bước sau:
 
 ```bash
 docker compose down
@@ -35,10 +35,9 @@ aws s3 rm s3://<bucket-name> --recursive --only-show-errors
 aws s3 rb s3://<bucket-name> --force
 ```
 
-Nếu có resource tạo riêng cho demo thì nên xóa luôn:
+Nếu có tài nguyên tạo riêng cho demo thì nên xóa luôn:
 
-- EC2 instance hoặc security group không dùng nữa.
-- Alarm/notification nếu đã tạo.
-- Endpoint hoặc stack không còn cần thiết.
-
-![Placeholder: Screenshot cleanup trong AWS Console](/images/5-Workshop/placeholder-cleanup.png)
+- EC2 instance hoặc security group không còn sử dụng.
+- Alarm hoặc notification nếu đã tạo.
+- Nếu đã thử nghiệm SageMaker real-time endpoint, cần xoá cả endpoint, endpoint-config và model.
+- Với Processing Job, kiểm tra lại artifact, báo cáo và log trên S3 / CloudWatch để xác nhận không còn tài nguyên phát sinh chi phí bất thường.
