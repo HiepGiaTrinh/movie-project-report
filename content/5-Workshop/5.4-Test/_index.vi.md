@@ -36,3 +36,16 @@ Về alert, nhóm ghi nhận rằng:
 
 - Chưa có pipeline alert thực thi sẵn trong repository.
 - Có thể đề xuất dùng CloudWatch Alarm kết hợp SNS trong tương lai.
+
+### 3.4. Kiểm tra triển khai SageMaker Processing Job
+
+Trong kiến trúc hiện tại, SageMaker được sử dụng cho Processing Job thay vì real-time endpoint. Vì vậy, bước kiểm thử cần tập trung vào việc xác nhận job được tạo đúng cấu hình, chạy thành công và sinh ra artifact hợp lệ.
+
+Các bước kiểm tra chính gồm:
+
+1. Chạy lệnh `--dry-run` để xác nhận region, bucket, source bundle và framework trước khi submit job thật.
+2. Theo dõi trạng thái job bằng `describe-processing-job` cho đến khi trạng thái chuyển sang `Completed`.
+3. Quan sát log trong CloudWatch để kiểm tra phiên bản Python của container, dependency được cài đặt đúng và không có lỗi trong quá trình xử lý.
+4. Xác nhận các đầu ra được đẩy về S3, bao gồm artifact mô hình, `LATEST.json` và báo cáo đánh giá.
+
+Kết quả kiểm thử cần cho thấy job không chỉ khởi tạo thành công mà còn tạo ra đầy đủ dữ liệu đầu ra để backend có thể sử dụng ở bước triển khai tiếp theo.

@@ -13,7 +13,7 @@ pre : " <b> 5.5 </b> "
 Một số biện pháp tối ưu chi phí phù hợp với dự án hiện tại gồm:
 
 - Dùng DynamoDB on-demand khi chưa có nhu cầu lớn.
-- Tránh bật SageMaker real-time endpoint nếu chưa cần thiết.
+- Tránh bật SageMaker real-time endpoint nếu chưa cần thiết; kiến trúc batch-first của dự án không yêu cầu endpoint chạy thường trực.
 - Dùng lifecycle policy cho S3 để quản lý dữ liệu cũ.
 - Dừng container khi không sử dụng.
 
@@ -39,4 +39,5 @@ Nếu có tài nguyên tạo riêng cho demo thì nên xóa luôn:
 
 - EC2 instance hoặc security group không còn sử dụng.
 - Alarm hoặc notification nếu đã tạo.
-- Endpoint hoặc stack không còn cần thiết.
+- Nếu đã thử nghiệm SageMaker real-time endpoint, cần xoá cả endpoint, endpoint-config và model.
+- Với Processing Job, kiểm tra lại artifact, báo cáo và log trên S3 / CloudWatch để xác nhận không còn tài nguyên phát sinh chi phí bất thường.
