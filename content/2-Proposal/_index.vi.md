@@ -16,6 +16,7 @@ Duy trì các máy chủ Machine Learning chạy tính toán theo thời gian th
 
 ### 2. Tuyên bố vấn đề
 _Vấn đề hiện tại_
+
 Hiện tại, các dịch vụ xem phim trực tuyến phát triển bùng nổ, số lượng phim và chương trình truyền hình sẵn có đã lên tới hàng chục, hàng trăm nghìn tác phẩm.
 
 Vấn đề cốt lõi: 
@@ -28,11 +29,13 @@ Vấn đề cốt lõi:
 Do đó, các dịch vụ xem phim cần một hệ thống gợi ý thông minh có khả năng thấu hiểu hành vi và sở thích của người dùng, từ đó cung cấp các đề xuất cá nhân hóa, giúp người dùng tiết kiệm thời gian và nâng cao trải nghiệm xem phim.
 
 _Giải pháp_
+
 Hệ thống sử dụng các thuật toán Machine Learning để thu thập, phân tích vết hành vi của người dùng, từ đó tìm ra các mẫu ẩn về sở thích và sự tương đồng giữa các nội dung. Nhằm đảm bảo khả năng mở rộng khi lượng người dùng và dữ liệu tăng cao, hệ thống không thể chỉ chạy trên một máy chủ cục bộ mà cần tận dụng sức mạnh của hạ tầng điện toán đám mây. Bằng cách kết hợp các dịch vụ của AWS, hệ thống có thể lưu trữ lượng lớn dữ liệu tương tác, lên lịch huấn luyện mô hình định kỳ, và phân phối kết quả gợi ý đến ứng dụng web với tốc độ cao.
 
 ### 3. Kiến trúc giải pháp
 
 _Dịch vụ AWS sử dụng_
+
 - **Amazon SageMaker**: Để huấn luyện và triển khai mô hình Machine Learning.
 - **Amazon EC2**: Để chạy các tác vụ xử lý dữ liệu và tính toán.
 - **Amazon S3**: Để lưu trữ dữ liệu lớn và kết quả mô hình.
@@ -43,6 +46,7 @@ _Thiết kế thành phần_
 
 ### 4. Triển khai kỹ thuật
 _Các giai đoạn triển khai_
+
 Dự án gồm 2 phần được triển khai song song: xây dựng Web xem phim và xây dựng mô hình Machine Learning gợi ý phim.
 
 1. **Khởi tạo hạ tầng và Chuẩn bị dữ liệu:** Thiết lập nền tảng cơ bản cho cả hai phần Web và Machine Learning, chốt schema dữ liệu và xử lý xong nguồn dữ liệu thô.
@@ -75,6 +79,7 @@ Dự án gồm 2 phần được triển khai song song: xây dựng Web xem phi
 5. **Kiểm thử:** Rà soát toàn bộ hệ thống, xử lý lỗi và đo lường hiệu năng thực tế. Tối ưu hóa thời gian tải trang và tốc độ truy vấn DynamoDB. Giám sát chi phí AWS để đảm bảo không có tài nguyên chạy ngầm vượt ngân sách. 
 
 _Yêu cầu kỹ thuật_
+
     - _Frontend:_ Sử dụng Vite và có hiểu biết về EC2. Xây dựng giao diện hiển thị phim, quản lý trạng thái đăng nhập.
     - _Backend:_ Xây dựng bằng FastAPI. Xử lý chuẩn xác luồng xác thực, quản lý luồng thu thập tương tác, và định tuyến kịch bản gợi ý dựa trên trạng thái người dùng.
     - _Machine Learning:_ Phát triển bằng Python sử dụng các thư viện implicit, scikit-learn, numpy, pandas. Yêu cầu xây dựng mô hình Implicit ALS, cùng thuật toán lai ghép Weighted RRF.
@@ -103,11 +108,13 @@ _Tổng:_ 5,78 USD/tháng, 69,36 USD/12 tháng.
 ### 7. Đánh giá rủi ro
 
 _Ma trận rủi ro_
+
 - **Bùng nổ chi phí Cloud - Ảnh hưởng cao, Xác suất trung bình:** Khởi tạo nhầm SageMaker Real-time Endpoint, quên tắt máy chủ EC2 sau khi huấn luyện, hoặc không cấu hình vòng đời cho Amazon S3 khiến các phiên bản dữ liệu cũ tích tụ vĩnh viễn gây tốn phí lưu trữ ngầm.
 - **Suy giảm chất lượng mô hình - Ảnh hưởng cao, Xác suất khá:** Quy trình tự động huấn luyện chạy trên tập dữ liệu tương tác bị nhiễu hoặc không đủ số lượng, sinh ra mô hình kém chất lượng và tự động ghi đè mô hình đang chạy tốt.
 - **Sai lệch dữ liệu nội bộ - Ảnh hưởng cao, Xác suất thấp:** Các tệp ánh xạ chỉ mục không khớp với ma trận mô hình sẽ khiến hệ thống gợi ý sai phim hoàn toàn nhưng không hề phát cảnh báo lỗilỗi.
 
 _Chiến lược giảm thiểu_
+
 - **Hàng rào ngân sách và Tự động hóa dọn dẹp:** Không cấp quyền chạy Endpoint thời gian thực. Cài đặt AWS Budgets để gửi email cảnh báo khi chi phí đạt mức 50% và 80%. Áp dụng bắt buộc chính sách S3 Lifecycle Rule để tự động xóa các phiên bản file cũ sau 30 ngày.
 - **Cổng kiểm duyệt tự động:** Mô hình mới chỉ được phép đưa vào sử dụng khi thỏa mãn 3 điều kiện:
     - Số lượng người dùng được chấm điểm trên 1000.
@@ -116,13 +123,16 @@ _Chiến lược giảm thiểu_
 - **Xác thực dữ liệu chéo:** Bổ sung các bước kiểm tra trên Backend để đảm bảo mọi ID phim mà mô hình đưa ra đều tồn tại thực sự trong danh mục DynamoDB.
 
 _Kế hoạch dự phòng_
+
 - **Cơ chế Fallback an toàn:** Nếu luồng người dùng mới không đủ dữ liệu hoặc mô hình Machine Learning gặp sự cố không thể nạp, Backend sẽ tự động lùi về kịch bản an toàn nhất: Gợi ý các bộ phim phổ biến Top-Rated đọc trực tiếp từ DynamoDB để đảm bảo hệ thống không bao giờ gặp lỗi sập trang.
 - **Quay lui mô hình - Rollback:** Khi phát hiện gợi ý kém chất lượng trên môi trường thực tế, quản trị viên chỉ cần cập nhật trên S3 trỏ về phiên bản mô hình cũ và khởi động lại Backend, hệ thống sẽ tự phục hồi ngay lập tức.
 
 ### 8. Kết quả kỳ vọng
 _Cải tiến kỹ thuật:_ 
+
 - Xây dựng thành công kiến trúc xử lý hàng loạt **Batch-first** kết hợp với Backend nạp dữ liệu trên RAM, giúp loại bỏ hoàn toàn độ trễ khi dự đoán so với các hệ thống gọi API mô hình thông thường.
 - Hệ thống có khả năng tự động cập nhật độ ưu tiên của người dùng bằng cách bắt các tương tác ngầm (thời lượng xem, lượt chia sẻ, thích/không thích) và học hỏi thông qua vòng lặp phản hồi định kỳ.
 
 _Giá trị dài hạn:_ 
+
 - Tạo ra một nền tảng kiến trúc vững chắc, tối ưu chi phí hạ tầng AWS. Giải pháp định tuyến người dùng và xử lý dữ liệu ẩn có thể tái sử dụng cho các dự án thương mại điện tử, giáo dục trực tuyến hoặc các nền tảng nội dung quy mô lớn khác trong tương lai.
