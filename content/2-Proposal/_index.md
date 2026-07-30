@@ -80,10 +80,10 @@ The project consists of 2 parts developed in parallel: building the movie stream
 
 _Technical Requirements_
 
-    - _Frontend:_ Use Vite with a basic understanding of EC2. Build the movie display interface and manage login states.
-    - _Backend:_ Build using FastAPI. Accurately handle authentication flows, manage interaction collection flows, and route recommendation scenarios based on user status.
-    - _Machine Learning:_ Develop in Python using the `implicit`, `scikit-learn`, `numpy`, and `pandas` libraries. Required to build the Implicit ALS model, along with a hybrid Weighted RRF algorithm.
-    - _Cloud - AWS:_ Amazon S3 to store raw datasets and model result files. Amazon DynamoDB as the primary database for the Web. Use Amazon SageMaker to automatically run the Re-train process.
+- _Frontend:_ Use Vite with a basic understanding of EC2. Build the movie display interface and manage login states.
+- _Backend:_ Build using FastAPI. Accurately handle authentication flows, manage interaction collection flows, and route recommendation scenarios based on user status.
+- _Machine Learning:_ Develop in Python using the `implicit`, `scikit-learn`, `numpy`, and `pandas` libraries. Required to build the Implicit ALS model, along with a hybrid Weighted RRF algorithm.
+- _Cloud - AWS:_ Amazon S3 to store raw datasets and model result files. Amazon DynamoDB as the primary database for the Web. Use Amazon SageMaker to automatically run the Re-train process.
 
 ### 5. Roadmap & Milestones
 - _Pre-internship (Month 0):_ Planning, dataset preparation.

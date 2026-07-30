@@ -80,10 +80,10 @@ Dự án gồm 2 phần được triển khai song song: xây dựng Web xem phi
 
 _Yêu cầu kỹ thuật_
 
-    - _Frontend:_ Sử dụng Vite và có hiểu biết về EC2. Xây dựng giao diện hiển thị phim, quản lý trạng thái đăng nhập.
-    - _Backend:_ Xây dựng bằng FastAPI. Xử lý chuẩn xác luồng xác thực, quản lý luồng thu thập tương tác, và định tuyến kịch bản gợi ý dựa trên trạng thái người dùng.
-    - _Machine Learning:_ Phát triển bằng Python sử dụng các thư viện implicit, scikit-learn, numpy, pandas. Yêu cầu xây dựng mô hình Implicit ALS, cùng thuật toán lai ghép Weighted RRF.
-    - _Cloud - AWS:_ Amazon S3 để lưu trữ tập dữ liệu thô và các file kết quả mô hình. Amazon DynamoDB làm cơ sở dữ liệu chính cho Web. Sử dụng Amazon SageMaker để chạy tự động quy trình Re-train.
+- _Frontend:_ Sử dụng Vite và có hiểu biết về EC2. Xây dựng giao diện hiển thị phim, quản lý trạng thái đăng nhập.
+- _Backend:_ Xây dựng bằng FastAPI. Xử lý chuẩn xác luồng xác thực, quản lý luồng thu thập tương tác, và định tuyến kịch bản gợi ý dựa trên trạng thái người dùng.
+- _Machine Learning:_ Phát triển bằng Python sử dụng các thư viện implicit, scikit-learn, numpy, pandas. Yêu cầu xây dựng mô hình Implicit ALS, cùng thuật toán lai ghép Weighted RRF.
+- _Cloud - AWS:_ Amazon S3 để lưu trữ tập dữ liệu thô và các file kết quả mô hình. Amazon DynamoDB làm cơ sở dữ liệu chính cho Web. Sử dụng Amazon SageMaker để chạy tự động quy trình Re-train.
 
 ### 5. Lộ trình & Mốc triển khai
 - _Trước thực tập (Tháng 0):_ Lập kế hoạch, chuẩn bị dataset.
