@@ -39,7 +39,7 @@ _AWS Services Used_
 - **Amazon DynamoDB**: To store structured data with low latency.
 
 _Component Design_
-- 
+
 
 ### 4. Technical Implementation
 _Implementation Phases_

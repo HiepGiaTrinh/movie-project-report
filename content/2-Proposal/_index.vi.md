@@ -39,7 +39,7 @@ _Dịch vụ AWS sử dụng_
 - **Amazon DynamoDB**: Để lưu trữ dữ liệu cấu trúc với độ trễ thấp.
 
 _Thiết kế thành phần_
-- 
+ 
 
 ### 4. Triển khai kỹ thuật
 _Các giai đoạn triển khai_
