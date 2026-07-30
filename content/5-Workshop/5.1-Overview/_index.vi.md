@@ -8,18 +8,18 @@ pre : " <b> 5.1. </b> "
 
 ## Tổng quan về phần triển khai AWS
 
-Phần này tập trung vào việc trình bày cách triển khai hệ thống movie recommendation của nhóm lên AWS theo hướng end-to-end. Nội dung được viết theo cấu trúc từ chuẩn bị môi trường, cấu hình tài nguyên AWS, chạy hệ thống, kiểm thử, đến tối ưu chi phí và cleanup.
+Phần này mô tả quá trình triển khai hệ thống gợi ý phim lên AWS theo hướng end-to-end. Nội dung được tổ chức theo các giai đoạn chính: chuẩn bị môi trường, tạo tài nguyên AWS, huấn luyện mô hình, kiểm thử, tối ưu chi phí và dọn dẹp tài nguyên.
 
 ### Nội dung chính của mục 5
 
-1. Prerequisite: nêu các điều kiện cần có trước khi triển khai.
-2. Hướng dẫn triển khai end-to-end: chia thành các bước rõ ràng để người khác có thể làm lại.
-3. Test & validation: kiểm tra log, request, chức năng và kết quả mong đợi.
-4. Tối ưu: đề cập đến chi phí, bảo mật cơ bản và cleanup.
-5. Những điểm cần bổ sung trong tương lai: ghi chú các phần còn thiếu để hoàn thiện sau.
+1. Prerequisite: xác định các điều kiện và quyền truy cập cần thiết trước khi triển khai.
+2. Hướng dẫn triển khai end-to-end: mô tả các bước tạo tài nguyên và vận hành hệ thống.
+3. Test & validation: trình bày các kiểm tra cần thực hiện sau khi triển khai.
+4. Tối ưu: tóm tắt các lưu ý về chi phí, bảo mật và cleanup.
+5. Những điểm cần bổ sung trong tương lai: liệt kê các nội dung chưa hoàn thiện.
 
 ### Điểm cần chú ý
 
-- Dự án hiện đang triển khai theo hướng EC2 + Docker Compose, kết hợp backend FastAPI, frontend Vite, DynamoDB, S3 và ML module.
-- SageMaker realtime inference chưa được bật đầy đủ, nên phần này cần được trình bày trung thực và có ghi chú rõ ràng.
-- Không nên mô tả CloudWatch metrics/alerts như một tính năng đã có sẵn nếu repo chưa triển khai trực tiếp.
+- Hệ thống hiện được triển khai theo hướng EC2 + Docker Compose, kết hợp backend FastAPI, frontend Vite, DynamoDB, S3 và module machine learning.
+- SageMaker realtime inference chưa phải là thành phần vận hành mặc định, do đó cần mô tả đúng với trạng thái triển khai thực tế.
+- CloudWatch metrics và alerts chỉ nên được đề cập như nội dung định hướng nếu repository chưa có hiện thực hóa đầy đủ.

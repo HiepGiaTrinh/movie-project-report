@@ -10,7 +10,7 @@ pre: " <b> 5.3.1. </b> "
 
 ### 1.1. Mục tiêu
 
-Bucket S3 được sử dụng để lưu dữ liệu đầu vào, dữ liệu đã xử lý, dữ liệu phục vụ và artifact mô hình. Việc khởi tạo bucket phải được thực hiện trước để các bước đồng bộ dữ liệu và huấn luyện mô hình có thể ghi kết quả lên cùng một không gian lưu trữ.
+Bucket S3 được sử dụng để lưu dữ liệu đầu vào, dữ liệu đã xử lý, dữ liệu phục vụ và artifact mô hình. Việc khởi tạo bucket cần được thực hiện trước để các bước đồng bộ dữ liệu và huấn luyện mô hình có thể ghi kết quả lên cùng một không gian lưu trữ.
 
 ### 1.2. Các bước thực hiện
 

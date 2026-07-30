@@ -8,12 +8,11 @@ pre: " <b> 5. </b> "
 
 # Các bước triển khai dự án lên AWS
 
-Phần này được tổ chức theo trình tự logic của quy trình triển khai, từ tổng quan, chuẩn bị môi trường, thực hiện triển khai, kiểm tra và đánh giá đến tối ưu hóa và rà soát lại nội dung.
+Phần này trình bày quy trình triển khai hệ thống lên AWS theo trình tự kỹ thuật từ chuẩn bị môi trường, triển khai tài nguyên, huấn luyện mô hình, kiểm thử, đến tối ưu và rà soát kết quả.
 
 1. [Tổng quan workshop](5.1-Overview/)
 2. [Chuẩn bị môi trường](5.2-Prerequisite/)
 3. [Triển khai từng bước](5.3-Step-by-step/)
 4. [Kiểm thử và đánh giá](5.4-Test/)
 5. [Cleanup và tối ưu hóa](5.5-Cleanup/)
-6. [Đánh giá và đề xuất cải thiện](5.6-Review/)
 

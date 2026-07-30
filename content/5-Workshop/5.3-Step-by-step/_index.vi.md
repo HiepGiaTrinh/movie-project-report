@@ -8,7 +8,7 @@ pre : " <b> 5.3. </b> "
 
 ## 2. Quy trình triển khai end-to-end
 
-Phần này mô tả trình tự triển khai các thành phần hạ tầng và mô hình của hệ thống lên AWS. Mỗi mục nhỏ tương ứng với một bước triển khai riêng biệt.
+Phần này mô tả trình tự triển khai các thành phần hạ tầng và mô hình của hệ thống lên AWS. Mỗi mục nhỏ tương ứng với một bước triển khai riêng biệt và có thể đọc độc lập.
 
 1. [Tạo bucket S3](5.3.1-S3-bucket/)
 2. [Tạo bảng DynamoDB](5.3.2-DynamoDB/)
