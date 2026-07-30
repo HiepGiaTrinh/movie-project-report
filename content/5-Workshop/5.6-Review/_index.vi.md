@@ -18,6 +18,3 @@ Danh sách các điểm cần rà soát lại trước khi đưa vào báo cáo 
 - [Cần bổ sung] Hướng dẫn triển khai IaC bằng Terraform hoặc CDK thay vì thao tác thủ công.
 - [Cần bổ sung] Hướng dẫn production deployment cho frontend và backend trên EC2 hoặc dịch vụ khác.
 - [Cần bổ sung] Cập nhật lại nội dung về SageMaker khi endpoint thật sự được triển khai.
-
-> [!NOTE]
-> Đây là bản khung báo cáo phù hợp để dùng làm nền cho phần 5. Khi có thông tin thực tế từ quá trình triển khai thật, các mục trên nên được thay bằng nội dung cụ thể, chuẩn xác và có screenshot đúng.

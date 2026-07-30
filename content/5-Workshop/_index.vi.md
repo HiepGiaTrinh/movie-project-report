@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây là bản khung báo cáo tham khảo cho phần 5 của dự án. Vui lòng kiểm tra lại thông tin thực tế từ repo và môi trường AWS trước khi dùng cho bài báo cáo chính thức.
-{{% /notice %}}
-
 # Các bước triển khai dự án lên AWS
 
 Phần này được tổ chức theo trình tự logic của quy trình triển khai, từ tổng quan, chuẩn bị môi trường, thực hiện triển khai, kiểm tra và đánh giá đến tối ưu hóa và rà soát lại nội dung.

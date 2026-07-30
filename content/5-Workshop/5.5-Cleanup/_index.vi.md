@@ -40,5 +40,3 @@ Nếu có resource tạo riêng cho demo thì nên xóa luôn:
 - EC2 instance hoặc security group không dùng nữa.
 - Alarm/notification nếu đã tạo.
 - Endpoint hoặc stack không còn cần thiết.
-
-![Placeholder: Screenshot cleanup trong AWS Console](/images/5-Workshop/placeholder-cleanup.png)

@@ -23,8 +23,3 @@ Phần này tập trung vào việc trình bày cách triển khai hệ thống 
 - Dự án hiện đang triển khai theo hướng EC2 + Docker Compose, kết hợp backend FastAPI, frontend Vite, DynamoDB, S3 và ML module.
 - SageMaker realtime inference chưa được bật đầy đủ, nên phần này cần được trình bày trung thực và có ghi chú rõ ràng.
 - Không nên mô tả CloudWatch metrics/alerts như một tính năng đã có sẵn nếu repo chưa triển khai trực tiếp.
-
-> [!NOTE]
-> Đây là bản khung báo cáo ban đầu. Những phần chưa có thông tin đầy đủ sẽ được đánh dấu để bổ sung sau.
-
-![Placeholder: Tổng quan triển khai AWS](/images/5-Workshop/placeholder-workshop-overview.png)

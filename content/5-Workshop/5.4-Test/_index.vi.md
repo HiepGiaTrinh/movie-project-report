@@ -25,19 +25,14 @@ Log nên được dùng để kiểm tra:
 
 ### 3.2. Kiểm tra metric
 
-Hiện tại, repo chưa cung cấp một stack CloudWatch metrics/alerts được code hóa sẵn. Vì vậy, phần này nên được trình bày theo hướng:
+Hiện tại, repo chưa cung cấp một stack CloudWatch metrics/alerts được code hóa sẵn. Vì vậy, phần này có thể được bổ sung theo hướng:
 
 - Metric cơ bản có thể theo dõi bằng log và health check.
 - Nếu cần mở rộng trong tương lai, nên bổ sung CloudWatch metric và alarm.
 
-> [!NOTE]
-> Đây là phần cần bổ sung sau. Hiện tại chưa có bằng chứng về việc hệ thống đã tích hợp metric/alert tự động trong code.
-
 ### 3.3. Kiểm tra alert
 
-Về alert, nhóm nên ghi nhận rằng:
+Về alert, nhóm ghi nhận rằng:
 
 - Chưa có pipeline alert thực thi sẵn trong repo.
 - Có thể đề xuất dùng CloudWatch Alarm + SNS trong tương lai.
-
-![Placeholder: Screenshot dashboard/alert planning](/images/5-Workshop/placeholder-monitoring.png)
