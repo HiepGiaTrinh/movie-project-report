@@ -89,31 +89,40 @@ _Yêu cầu kỹ thuật_
 - _Sau triển khai:_ Theo dõi hiệu suất, tối ưu hóa mô hình và mở rộng tính năng.
 
 ### 6. Ước tính ngân sách
-Có thể xem chi phí trên [AWS Pricing Calculator](https://github.com/tanghongai1704/movie-project-report)
-Hoặc tải [tệp ước tính ngân sách](https://github.com/tanghongai1704/movie-project-report)
+Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=f696e1b79bc7b7f905e25226ff5b9f3b0011c562)
 
 _Chi phí hạ tầng_
 
-* AWS 1:
-* AWS 2:
-* AWS 3:
+- Amazon EC2: 3,87 USD/tháng (1 t3.micro, 730 giờ, 30 GB storage).
+- Amazon SageMaker: 1,41 USD/tháng (1 ml.m5.xlarge, 30 jobs, 10 phút/job).
+- Amazon DynamoDB: 0,37 USD/tháng (On-demand, 1 GB storage, 100.000 requests).
+- Amazon S3 Standard: 0,13 USD/tháng (5 GB storage, 2000 requests).
 
-_Tổng:_ 
+_Tổng:_ 5,78 USD/tháng, 69,36 USD/12 tháng.
 
 ### 7. Đánh giá rủi ro
 
 _Ma trận rủi ro_
-* Rủi ro 1:
-* Rủi ro 2:
+- **Bùng nổ chi phí Cloud - Ảnh hưởng cao, Xác suất trung bình:** Khởi tạo nhầm SageMaker Real-time Endpoint, quên tắt máy chủ EC2 sau khi huấn luyện, hoặc không cấu hình vòng đời cho Amazon S3 khiến các phiên bản dữ liệu cũ tích tụ vĩnh viễn gây tốn phí lưu trữ ngầm.
+- **Suy giảm chất lượng mô hình - Ảnh hưởng cao, Xác suất khá:** Quy trình tự động huấn luyện chạy trên tập dữ liệu tương tác bị nhiễu hoặc không đủ số lượng, sinh ra mô hình kém chất lượng và tự động ghi đè mô hình đang chạy tốt.
+- **Sai lệch dữ liệu nội bộ - Ảnh hưởng cao, Xác suất thấp:** Các tệp ánh xạ chỉ mục không khớp với ma trận mô hình sẽ khiến hệ thống gợi ý sai phim hoàn toàn nhưng không hề phát cảnh báo lỗilỗi.
 
 _Chiến lược giảm thiểu_
-* Chiến lược 1:
-* Chiến lược 2:
+- **Hàng rào ngân sách và Tự động hóa dọn dẹp:** Không cấp quyền chạy Endpoint thời gian thực. Cài đặt AWS Budgets để gửi email cảnh báo khi chi phí đạt mức 50% và 80%. Áp dụng bắt buộc chính sách S3 Lifecycle Rule để tự động xóa các phiên bản file cũ sau 30 ngày.
+- **Cổng kiểm duyệt tự động:** Mô hình mới chỉ được phép đưa vào sử dụng khi thỏa mãn 3 điều kiện:
+    - Số lượng người dùng được chấm điểm trên 1000.
+    - Chỉ số hiệu suất vượt qua mức cơ sở Popularity Baseline.
+    - Không bị sụt giảm quá 5% độ chính xác so với phiên bản hiện tại.
+- **Xác thực dữ liệu chéo:** Bổ sung các bước kiểm tra trên Backend để đảm bảo mọi ID phim mà mô hình đưa ra đều tồn tại thực sự trong danh mục DynamoDB.
 
 _Kế hoạch dự phòng_
-* Kế hoạch 1:
-* Kế hoạch 2:
+- **Cơ chế Fallback an toàn:** Nếu luồng người dùng mới không đủ dữ liệu hoặc mô hình Machine Learning gặp sự cố không thể nạp, Backend sẽ tự động lùi về kịch bản an toàn nhất: Gợi ý các bộ phim phổ biến Top-Rated đọc trực tiếp từ DynamoDB để đảm bảo hệ thống không bao giờ gặp lỗi sập trang.
+- **Quay lui mô hình - Rollback:** Khi phát hiện gợi ý kém chất lượng trên môi trường thực tế, quản trị viên chỉ cần cập nhật trên S3 trỏ về phiên bản mô hình cũ và khởi động lại Backend, hệ thống sẽ tự phục hồi ngay lập tức.
 
 ### 8. Kết quả kỳ vọng
 _Cải tiến kỹ thuật:_ 
-_Giá trị dài hạn:_
+- Xây dựng thành công kiến trúc xử lý hàng loạt **Batch-first** kết hợp với Backend nạp dữ liệu trên RAM, giúp loại bỏ hoàn toàn độ trễ khi dự đoán so với các hệ thống gọi API mô hình thông thường.
+- Hệ thống có khả năng tự động cập nhật độ ưu tiên của người dùng bằng cách bắt các tương tác ngầm (thời lượng xem, lượt chia sẻ, thích/không thích) và học hỏi thông qua vòng lặp phản hồi định kỳ.
+
+_Giá trị dài hạn:_ 
+- Tạo ra một nền tảng kiến trúc vững chắc, tối ưu chi phí hạ tầng AWS. Giải pháp định tuyến người dùng và xử lý dữ liệu ẩn có thể tái sử dụng cho các dự án thương mại điện tử, giáo dục trực tuyến hoặc các nền tảng nội dung quy mô lớn khác trong tương lai.
