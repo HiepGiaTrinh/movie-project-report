@@ -1,115 +1,128 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Movie Recommendation System
+## Movie Recommendation System Based on User Data
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The Movie Recommendation System is a user data-driven recommendation platform designed to provide personalized experiences for users. The system utilizes a combination of Content-Based Filtering and Collaborative Filtering.
+
+Maintaining Machine Learning servers for real-time computations is extremely expensive. To resolve this, the entire model training and movie scoring processes will be executed periodically in the background via SageMaker Processing Jobs and EC2. The results are stored on Amazon S3 and Amazon DynamoDB. The FastAPI backend simply loads this data into memory upon startup to serve users instantly.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+_Current Issues_
+Currently, online streaming services are booming, with the number of available movies and TV shows reaching tens to hundreds of thousands.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+Core problems:
+- With too many choices, users are often overwhelmed by information and spend too much time (15–20 minutes on average) just browsing movie lists without finding a suitable option.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+- Manually searching for movies and shows by keywords or genres does not accurately reflect the diverse and evolving preferences of users, leading to a degraded user experience.
+
+- Users easily become frustrated and abandon the application if they do not find engaging content within the first few minutes.
+
+Therefore, streaming services require an intelligent recommendation system capable of understanding user behavior and preferences to provide personalized recommendations, ultimately saving users time and enhancing their viewing experience.
+
+_Solution_
+The system uses Machine Learning algorithms to collect and analyze user behavioral traces, uncovering hidden patterns of preferences and content similarities. To ensure scalability as the number of users and data volume increase, the system cannot run solely on a local server; it must leverage the power of cloud computing infrastructure. By integrating AWS services, the system can store large amounts of interaction data, schedule periodic model training, and deliver recommendation results to the web application at high speeds.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+_AWS Services Used_
+- **Amazon SageMaker**: To train and deploy Machine Learning models.
+- **Amazon EC2**: To run data processing and computational tasks.
+- **Amazon S3**: To store large datasets and model results.
+- **Amazon DynamoDB**: To store structured data with low latency.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
-
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
-
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+_Component Design_
+- 
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+_Implementation Phases_
+The project consists of 2 parts developed in parallel: building the movie streaming Web application and building the Machine Learning movie recommendation model.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+1. **Infrastructure Provisioning and Data Preparation:** Set up the fundamental platform for both the Web and Machine Learning components, finalize the data schema, and process the raw data sources.
+    - _Web Part:_
+        - Set up the project structure, configure the Docker environment, and establish basic CI/CD pipelines.
+        - Build the FastAPI Backend framework, design the schema for DynamoDB, and create tables on AWS.
+        - Design basic UI/UX, and build the Register/Login and Onboarding flows on Vite.
+    - _Machine Learning Part:_
+        - Preprocess The Movies Dataset.
+        - Develop a Data Pipeline to output cleaned data into Train/Validation/Test sets.
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+2. **Cost Calculation:** Use the AWS Pricing Calculator to estimate and adjust budgets.
+
+3. **Feature Development:** Finalize features, build user scenarios on the Web, and successfully train the initial recommendation models.
+    - _Web Part:_
+        - Develop the movie details page and build APIs to display metadata.
+        - Build a complete Interaction Pipeline: capture events (such as `click`, `watch`, `rate`, `like`) from the Frontend and store them in the Interactions table on DynamoDB.
+    - _Machine Learning Part:_
+        - Build a **Popularity Ranker** model for guest users and a **Content-Based Recommender** for logged-in users.
+        - Develop the core **Collaborative Filtering** model, converting interaction events into weighted scores.
+        - Integrate the model into a SageMaker Endpoint to serve movie recommendation predictions.
+
+4. **System Integration and Cloud Deployment:** Connect the Backend with the Machine Learning model, ensuring the system adheres to a Batch-First architecture on AWS infrastructure.
+    - _Web Part:_
+        - Integrate the Machine Learning model into the Backend process. Build a POST API to route requests from the Frontend to the model.
+    - _Machine Learning Part:_
+        - Automate the model re-training process.
+        - Run experiments on Amazon SageMaker.
+
+5. **Testing:** Review the entire system, handle bugs, and measure real-world performance. Optimize page load times and DynamoDB query speeds. Monitor AWS costs to ensure no background resources exceed the budget.
+
+_Technical Requirements_
+    - _Frontend:_ Use Vite with a basic understanding of EC2. Build the movie display interface and manage login states.
+    - _Backend:_ Build using FastAPI. Accurately handle authentication flows, manage interaction collection flows, and route recommendation scenarios based on user status.
+    - _Machine Learning:_ Develop in Python using `implicit`, `scikit-learn`, `numpy`, and `pandas` libraries. Required to build the Implicit ALS model, along with a hybrid Weighted RRF algorithm.
+    - _Cloud - AWS:_ Amazon S3 to store raw datasets and model result files. Amazon DynamoDB as the primary database for the Web. Use Amazon SageMaker to automatically run the Re-train process.
+
+### 5. Roadmap & Milestones
+- _Pre-internship (Month 0):_ Planning, dataset preparation.
+- _Internship (Months 1-3):_
+    - Month 1: General research on AWS services.
+    - Month 2: Build the streaming web app and the movie recommendation system.
+    - Month 3: System testing and preparation for real-world deployment.
+- _Post-deployment:_ Monitor performance, optimize models, and expand features.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+Costs can be viewed on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=f696e1b79bc7b7f905e25226ff5b9f3b0011c562)
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+_Infrastructure Costs_
 
-Total: $0.7/month, $8.40/12 months
+- Amazon EC2: $3.87/month (1 t3.micro, 730 hours, 30 GB storage).
+- Amazon SageMaker: $1.41/month (1 ml.m5.xlarge, 30 jobs, 10 mins/job).
+- Amazon DynamoDB: $0.37/month (On-demand, 1 GB storage, 100,000 requests).
+- Amazon S3 Standard: $0.13/month (5 GB storage, 2000 requests).
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+_Total:_ $5.78/month, $69.36/12 months.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+_Risk Matrix_
+- **Cloud Cost Blowout - High Impact, Medium Probability:** Accidentally initializing SageMaker Real-time Endpoints, forgetting to turn off EC2 servers after training, or failing to configure lifecycle rules for Amazon S3, causing old data versions to accumulate permanently and incur hidden storage fees.
+- **Model Degradation - High Impact, Fair Probability:** The automated training process runs on noisy or insufficient interaction datasets, generating poor-quality models that automatically overwrite well-performing ones.
+- **Internal Data Misalignment - High Impact, Low Probability:** Index mapping files do not match the model matrix, causing the system to recommend completely incorrect movies without triggering any error alerts.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+_Mitigation Strategies_
+- **Budget Guardrails & Automated Cleanup:** Do not grant permissions to run Real-time Endpoints. Set up AWS Budgets to send email alerts when costs reach 50% and 80%. Strictly enforce S3 Lifecycle Rules to automatically delete old file versions after 30 days.
+- **Automated Review Gates:** A new model is only permitted for deployment if it meets 3 conditions:
+    - The number of scored users exceeds 1000.
+    - Performance metrics surpass the Popularity Baseline.
+    - Accuracy does not drop by more than 5% compared to the current version.
+- **Cross-Data Validation:** Add verification steps on the Backend to ensure all movie IDs generated by the model actually exist in the DynamoDB catalog.
+
+_Contingency Plans_
+- **Safe Fallback Mechanism:** If the influx of new users lacks sufficient data or the Machine Learning model fails to load, the Backend will automatically revert to the safest scenario: Recommending Top-Rated popular movies directly from DynamoDB to ensure the system never crashes.
+- **Model Rollback:** Upon detecting poor-quality recommendations in the production environment, the administrator simply updates the S3 pointer to the previous model version and restarts the Backend; the system will recover instantly.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+_Technical Improvements:_ 
+- Successfully construct a **Batch-first** processing architecture combined with a memory-loaded Backend, completely eliminating prediction latency compared to conventional model API calling systems.
+- The system is capable of automatically updating user priorities by capturing implicit interactions (watch time, shares, likes/dislikes) and learning through a periodic feedback loop.
+
+_Long-term Value:_ 
+- Create a solid architectural foundation that optimizes AWS infrastructure costs. The user routing and implicit data processing solutions can be reused for future e-commerce, online education, or large-scale content platforms.
