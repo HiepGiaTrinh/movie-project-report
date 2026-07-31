@@ -7,20 +7,20 @@ pre: " <b> 1.11. </b> "
 ---
 
 {{% notice note %}}
-Chưa tới tuần này lúc viết — sẽ cập nhật lại thành thực tế sau khi làm xong.
+Tuần này chưa bắt đầu tại thời điểm viết báo cáo. Nội dung sẽ được cập nhật thành kết quả thực tế sau khi hoàn thành.
 {{% /notice %}}
 
-### Mục tiêu tuần 11
+### Mục tiêu
 
-* Biến hết công sức đã làm thành tài liệu người khác đọc hiểu được.
+* Tài liệu hoá đầy đủ những gì đã hoàn thành để người khác có thể theo dõi.
 
 ### Kế hoạch
 
 * Viết mục Workshop song ngữ cho báo cáo này.
-* Vẽ lại sơ đồ kiến trúc cho phần ML cho đàng hoàng.
-* Soạn nội dung blog về phần SageMaker để đăng cho study group.
+* Chuẩn bị sơ đồ kiến trúc cho phần ML theo đúng quy ước của AWS.
+* Soạn nội dung blog về phần SageMaker để đăng lên AWS Study Group.
 
-### Kỳ vọng
+### Kết quả kỳ vọng
 
-* Tài liệu mà người khác đọc theo được thật.
-* Sơ đồ sẵn sàng cho buổi thuyết trình cuối kỳ.
+* Tài liệu Workshop cho phần ML hoàn chỉnh, có thể review được.
+* Sơ đồ và nội dung sẵn sàng cho buổi thuyết trình cuối kỳ.

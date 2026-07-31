@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### What I wanted to get done this week
+### Objectives
 
-* Get the model actually serving requests, not just sitting there.
-* Connect it to the rest of the app.
+* Deploy the model as a live inference endpoint.
+* Connect it to the rest of the application.
 
 ### What I did
 
-* Read up on SageMaker inference options, focused on Serverless Inference.
-* Deployed the model to a Serverless Inference endpoint in ap-southeast-2.
-* Tested it with the CLI and boto3 using some sample user IDs.
-* Talked with the Backend person about wiring the endpoint into the Lambda/API Gateway layer.
-* Timed the cold start and average latency.
+* Reviewed SageMaker inference options and focused on Serverless Inference.
+* Deployed the model to a SageMaker Serverless Inference endpoint in ap-southeast-2.
+* Tested the endpoint using the AWS CLI and boto3 with sample user IDs.
+* Coordinated with the Backend team member to connect the endpoint to the shared Lambda/API Gateway layer.
+* Measured cold-start time and average inference latency.
 
-### How it went
+### Results
 
-* Endpoint is up and actually returning recommendations.
-* Confirmed the request/response flow works between the API and the endpoint.
-* Have baseline latency numbers to compare against later.
+* The endpoint is live and returning recommendations.
+* Verified that the request/response flow between the API layer and the endpoint works correctly.
+* Recorded baseline latency figures for future comparison.

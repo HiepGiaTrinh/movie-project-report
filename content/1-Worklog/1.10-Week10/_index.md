@@ -7,20 +7,20 @@ pre: " <b> 1.10. </b> "
 ---
 
 {{% notice note %}}
-Haven't gotten here yet — will update this with what actually happened once it's done.
+This week has not started at the time of writing. This section will be updated with actual results once completed.
 {{% /notice %}}
 
-### What I want to get done this week
+### Objectives
 
-* Make sure the whole thing — ML, backend, frontend — actually works together, not just in isolation.
+* Validate that the ML, backend, and frontend components work reliably together.
 
 ### Plan
 
-* Run full regression tests with the Frontend/Backend/DevOps folks.
-* Test the feedback loop for real: submit a rating, see retraining kick off, see the new model show up.
-* Fix whatever breaks.
+* Run full regression tests with the Frontend, Backend, and DevOps team members.
+* Validate the feedback loop end-to-end: submit a new rating, confirm retraining triggers, and confirm the new model is deployed.
+* Resolve any issues found during integration testing.
 
-### What I'm hoping for
+### Expected Outcomes
 
-* A system that holds together when everything runs at once.
-* Proof the feedback loop actually improves recommendations, not just that it runs.
+* A stable, fully integrated system ready for demonstration.
+* Confirmation that the feedback loop measurably improves recommendations over time.

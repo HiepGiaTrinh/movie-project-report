@@ -6,22 +6,22 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### Mục tiêu tuần 1
+### Mục tiêu
 
-* Làm quen mọi người trong FCAJ, đọc nội quy chương trình cho kỹ.
-* Ôn lại kiến thức AWS cơ bản.
-* Chốt hướng làm project với nhóm.
+* Hoàn thành onboarding với đội FCAJ và nắm rõ nội quy, kỳ vọng của chương trình.
+* Xây dựng nền tảng kiến thức về các khái niệm AWS cốt lõi.
+* Thống nhất với nhóm về hướng triển khai dự án.
 
-### Đã làm gì
+### Công việc đã thực hiện
 
-* Đi buổi orientation của FCAJ, gặp ban tổ chức và cả nhóm.
-* Học "AWS Cloud Practitioner Essentials" trên Skill Builder — ôn Region, AZ, IAM, shared responsibility, cách tính billing.
-* Tạo account AWS riêng ở ap-southeast-2, bật MFA cho root, tạo thêm IAM user để dùng hàng ngày.
-* Set Budget alert để canh $200 credit, khỏi xài lố lúc nào không hay.
-* Họp nhóm chốt ý tưởng "Netflix-Style Movie Recommendation System" và chia việc — mình nhận ML/SageMaker, còn lại chia nhau Backend, Frontend, DevOps.
+* Tham dự buổi orientation của FCAJ và làm quen với các thành viên trong nhóm.
+* Hoàn thành khoá "AWS Cloud Practitioner Essentials" trên AWS Skill Builder, bao gồm Region, Availability Zone, IAM, mô hình shared responsibility và kiến thức billing cơ bản.
+* Thiết lập tài khoản AWS cá nhân tại khu vực ap-southeast-2, bật xác thực đa yếu tố (MFA) cho root account và tạo IAM user riêng để sử dụng hằng ngày.
+* Cấu hình cảnh báo AWS Budget để theo dõi khoản credit $200, tránh phát sinh chi phí ngoài dự kiến.
+* Tham gia buổi họp khởi động dự án "Netflix-Style Movie Recommendation System" và cùng nhóm phân chia công việc theo vai trò — mình phụ trách mảng ML/SageMaker, các thành viên còn lại đảm nhận Backend, Frontend và DevOps.
 
 ### Kết quả
 
-* Nắm được các nhóm dịch vụ AWS chính và hiểu shared responsibility model.
-* Account sẵn sàng: có MFA, có IAM user riêng, có Budget alert.
-* Nhóm thống nhất được hướng làm và ai phụ trách phần nào.
+* Nắm được các nhóm dịch vụ AWS cơ bản và mô hình shared responsibility.
+* Tài khoản AWS cá nhân đã sẵn sàng: đã bật MFA, tạo IAM user riêng, cấu hình Budget alert.
+* Nhóm đã thống nhất được hướng triển khai và phân công vai trò cụ thể.

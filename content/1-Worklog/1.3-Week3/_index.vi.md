@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Mục tiêu tuần 3
+### Mục tiêu
 
-* Setup SageMaker Studio làm chỗ làm việc chính.
-* Có được bước tiền xử lý chạy lại được, khỏi phải làm tay mỗi lần.
+* Thiết lập SageMaker Studio làm không gian làm việc chính.
+* Xây dựng bước tiền xử lý dữ liệu có thể tái sử dụng thay vì thao tác thủ công.
 
-### Đã làm gì
+### Công việc đã thực hiện
 
-* Học "Amazon SageMaker Studio for Data Scientists" trên Skill Builder.
-* Setup SageMaker Studio domain và profile ở ap-southeast-2.
-* Viết SageMaker Processing job để làm sạch data MovieLens và dựng ma trận user-item.
-* Chia train/test theo thời gian thay vì random — hợp lý hơn cho bài toán recommender.
-* Lưu data đã xử lý ngược lại S3, folder `processed/`.
+* Hoàn thành khoá "Amazon SageMaker Studio for Data Scientists" trên AWS Skill Builder.
+* Thiết lập SageMaker Studio domain và user profile tại khu vực ap-southeast-2.
+* Xây dựng SageMaker Processing job để làm sạch dữ liệu MovieLens và dựng ma trận user-item.
+* Triển khai phương pháp chia train/test theo thời gian thay vì ngẫu nhiên, phản ánh đúng tính chất tuần tự của hệ thống gợi ý.
+* Lưu dữ liệu đã xử lý trở lại S3 tại prefix `processed/`.
 
 ### Kết quả
 
-* Processing job đầu tiên chạy xong hết mà không cần ngồi canh.
-* Có pipeline chạy lại được bất cứ lúc nào, ra ngay data sẵn sàng để train.
-* Hiểu rõ hơn vì sao chia dữ liệu theo mốc thời gian lại quan trọng ở bài toán này.
+* SageMaker Processing job đầu tiên chạy thành công end-to-end.
+* Xây dựng được pipeline có thể tái sử dụng, cho ra bộ dữ liệu sẵn sàng để huấn luyện.
+* Hiểu rõ hơn tầm quan trọng của việc chia dữ liệu theo mốc thời gian đối với hệ thống gợi ý.

@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Mục tiêu tuần 4
+### Mục tiêu
 
-* Train ra một bản model đầu tiên bằng SageMaker Training job.
-* Thử vài combo hyperparameter xem cái nào ổn.
+* Huấn luyện phiên bản đầu tiên của mô hình bằng SageMaker Training job.
+* So sánh một số cấu hình hyperparameter.
 
-### Đã làm gì
+### Công việc đã thực hiện
 
-* Học "Build, Train, and Deploy ML Models with Amazon SageMaker" trên Skill Builder.
-* Viết model ALS collaborative-filtering bằng thư viện `implicit`.
-* Đóng gói lại và chạy dưới dạng SageMaker Training job, thay vì chỉ chạy trên máy cá nhân.
-* Thử vài combo factors/regularization/iterations để so sánh.
-* Lưu ma trận factor kết quả lên S3.
+* Hoàn thành khoá "Build, Train, and Deploy ML Models with Amazon SageMaker" trên AWS Skill Builder.
+* Triển khai mô hình collaborative-filtering ALS bằng thư viện `implicit`.
+* Đóng gói script huấn luyện và chạy dưới dạng SageMaker Training job thay vì chỉ huấn luyện cục bộ.
+* So sánh nhiều tổ hợp factors, regularization và iterations.
+* Lưu các ma trận factor thu được lên S3.
 
 ### Kết quả
 
-* Có model ALS đã train, và giờ training job chạy lại được, có version — không còn là script chạy một lần rồi thôi.
-* Tìm được cấu hình hyperparameter khá ổn dựa trên validation.
-* Model artifact đã có trên S3, sẵn sàng cho bước tiếp theo — đánh giá.
+* Có được mô hình ALS đã huấn luyện, với các training job có thể tái lập và quản lý phiên bản.
+* Xác định được cấu hình hyperparameter hợp lý dựa trên kết quả validation.
+* Model artifact được lưu trên S3, sẵn sàng cho bước đánh giá.

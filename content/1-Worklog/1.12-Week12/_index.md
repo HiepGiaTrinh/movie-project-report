@@ -7,21 +7,21 @@ pre: " <b> 1.12. </b> "
 ---
 
 {{% notice note %}}
-Haven't gotten here yet — will update this with what actually happened once it's done.
+This week has not started at the time of writing. This section will be updated with actual results once completed.
 {{% /notice %}}
 
-### What I want to get done this week
+### Objectives
 
-* Close everything out properly.
+* Close out the project properly.
 
 ### Plan
 
 * Record the final demo video.
-* Prep and practice the presentation slides.
-* Check the Billing Dashboard, make sure I'm within budget.
-* Tear down whatever's not needed anymore so it doesn't keep costing money.
+* Prepare and rehearse the presentation.
+* Review the AWS Billing Dashboard to confirm spending is within budget.
+* Remove any AWS resources that are no longer needed.
 
-### What I'm hoping for
+### Expected Outcomes
 
-* Report, video, and slides all ready to submit.
-* Nothing left running on AWS that shouldn't be.
+* Final report, demo video, and slides ready for submission.
+* No unnecessary AWS resources left running.

@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### What I wanted to get done this week
+### Objectives
 
-* Train an actual first version of the model using SageMaker Training jobs.
-* Try a few hyperparameter combos and see what works.
+* Train an initial version of the model using SageMaker Training jobs.
+* Compare a few hyperparameter configurations.
 
 ### What I did
 
-* Took "Build, Train, and Deploy ML Models with Amazon SageMaker" on Skill Builder.
-* Built an ALS collaborative-filtering model using the `implicit` library.
-* Packaged it up and ran it as a SageMaker Training job instead of just running it on my laptop.
-* Tried a few combos of factors/regularization/iterations to compare.
+* Completed "Build, Train, and Deploy ML Models with Amazon SageMaker" on AWS Skill Builder.
+* Implemented an ALS collaborative-filtering model using the `implicit` library.
+* Packaged the training script and ran it as a SageMaker Training job rather than training locally only.
+* Compared several combinations of factors, regularization, and iterations.
 * Saved the resulting factor matrices to S3.
 
-### How it went
+### Results
 
-* Have a trained ALS model, and the training runs are reproducible and versioned now, not one-off scripts.
-* Found a hyperparameter setup that looked reasonable on validation.
-* Model artifacts are on S3 and ready for the next step — evaluation.
+* Have a trained ALS model, with training jobs that are now reproducible and versioned.
+* Identified a reasonable hyperparameter configuration based on validation results.
+* Model artifacts are stored on S3 and ready for evaluation.

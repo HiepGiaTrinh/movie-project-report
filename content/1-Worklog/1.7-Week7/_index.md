@@ -7,22 +7,22 @@ pre: " <b> 1.7. </b> "
 ---
 
 {{% notice note %}}
-Still working through this week as I write this — the notes below are what's done so far.
+This week is still in progress at the time of writing. The results below reflect what has been completed so far.
 {{% /notice %}}
 
-### What I wanted to get done this week
+### Objectives
 
-* Get the endpoint hooked into the full app and test it end-to-end.
-* Start figuring out the feedback loop.
+* Integrate the endpoint with the full application and test it end-to-end.
+* Begin designing the feedback loop.
 
 ### What I did
 
-* Connected the SageMaker endpoint to the team's EC2 app and ran a full test: log in, browse, get recommendations.
-* Chased down a few integration bugs between the backend and the endpoint (payload format, error handling — the usual).
-* Started sketching out the feedback loop: new ratings go into DynamoDB, get exported to S3 for retraining.
-* Drafted the retraining flow on paper: DynamoDB Stream → Lambda → S3 → SageMaker Pipeline.
+* Connected the SageMaker endpoint to the team's EC2-hosted application and ran a full end-to-end test covering login, browsing, and receiving recommendations.
+* Resolved several integration issues between the backend and the endpoint, including payload formatting and error handling.
+* Began designing the feedback loop: new ratings are written to DynamoDB and exported to S3 for retraining.
+* Drafted the retraining flow: DynamoDB Stream → Lambda → S3 → SageMaker Pipeline.
 
-### How it's going so far
+### Results (in progress)
 
-* Got a working end-to-end demo with the rest of the system.
-* Have a rough design for the feedback loop, ready to actually build next week.
+* Achieved a working end-to-end demo alongside the rest of the team's system.
+* Have an initial design for the feedback loop, ready to implement next week.

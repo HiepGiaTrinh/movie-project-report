@@ -7,20 +7,20 @@ pre: " <b> 1.8. </b> "
 ---
 
 {{% notice note %}}
-Chưa tới tuần này lúc viết — sẽ cập nhật lại thành thực tế sau khi làm xong.
+Tuần này chưa bắt đầu tại thời điểm viết báo cáo. Nội dung sẽ được cập nhật thành kết quả thực tế sau khi hoàn thành.
 {{% /notice %}}
 
-### Mục tiêu tuần 8
+### Mục tiêu
 
-* Thôi retrain bằng tay, để nó tự chạy.
+* Chuyển từ retraining thủ công sang một pipeline tự động.
 
 ### Kế hoạch
 
-* Xây SageMaker Pipeline nối Processing → Training → Evaluation.
-* Set EventBridge để tự trigger theo lịch.
-* Thêm bước kiểm tra, model mới chỉ được lên production nếu thật sự tốt hơn bản cũ.
+* Xây dựng SageMaker Pipeline nối các bước Processing, Training và Evaluation.
+* Cấu hình rule EventBridge để kích hoạt retraining theo lịch.
+* Bổ sung bước kiểm soát (promotion gate) để chỉ triển khai mô hình mới khi vượt trội hơn phiên bản hiện tại.
 
-### Kỳ vọng
+### Kết quả kỳ vọng
 
-* Pipeline retrain tự chạy, khỏi phải ngồi làm tay.
-* Có chốt chặn để model tệ hơn không lỡ tay đưa lên production.
+* Pipeline retraining tự động, có thể lên lịch.
+* Cơ chế đảm bảo mô hình kém hơn không được đưa vào production.

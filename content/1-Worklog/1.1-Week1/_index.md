@@ -6,22 +6,22 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### What I wanted to get done this week
+### Objectives
 
-* Get to know the FCAJ crew, read through the program rules.
-* Refresh the AWS basics.
-* Settle on the project direction with the team.
+* Get onboarded with the FCAJ team and review the program's rules and expectations.
+* Build a working knowledge of core AWS concepts.
+* Align with the team on the project direction.
 
 ### What I did
 
-* Went to FCAJ orientation, met the organizing team and the rest of the group.
-* Went through "AWS Cloud Practitioner Essentials" on Skill Builder — Region, AZ, IAM, shared responsibility, how billing works.
-* Set up my own AWS account in ap-southeast-2, turned on MFA for root, made a separate IAM user for daily work.
-* Set a Budget alert so I don't blow through the $200 credit without noticing.
-* Team meeting to lock in the "Netflix-Style Movie Recommendation System" idea and split up the work — I took ML/SageMaker, the rest split Backend, Frontend, DevOps.
+* Attended the FCAJ orientation and met the rest of the team.
+* Completed "AWS Cloud Practitioner Essentials" on AWS Skill Builder, covering Regions, Availability Zones, IAM, the shared responsibility model, and billing basics.
+* Set up a personal AWS account in ap-southeast-2, enabled MFA on the root account, and created a separate IAM user for daily work.
+* Configured an AWS Budget alert to track the $200 credit and avoid unexpected charges.
+* Took part in the team's kickoff meeting for the "Netflix-Style Movie Recommendation System" project and helped divide the work by role — I took on ML/SageMaker, while the rest of the team split Backend, Frontend, and DevOps.
 
-### How it went
+### Results
 
-* Got a decent handle on the main AWS service categories and the shared responsibility model.
-* Account's ready to go: MFA on, IAM user set up, Budget alert configured.
-* Team's aligned on what we're building and who's doing what.
+* Gained a solid understanding of the core AWS service categories and the shared responsibility model.
+* Personal AWS account is fully set up: MFA enabled, IAM user created, Budget alert configured.
+* Team is aligned on the project direction and individual responsibilities.

@@ -7,20 +7,20 @@ pre: " <b> 1.9. </b> "
 ---
 
 {{% notice note %}}
-Chưa tới tuần này lúc viết — sẽ cập nhật lại thành thực tế sau khi làm xong.
+Tuần này chưa bắt đầu tại thời điểm viết báo cáo. Nội dung sẽ được cập nhật thành kết quả thực tế sau khi hoàn thành.
 {{% /notice %}}
 
-### Mục tiêu tuần 9
+### Mục tiêu
 
-* Biết được model đang ổn hay không, chứ không chỉ đoán.
+* Xây dựng khả năng giám sát tình trạng mô hình.
 
 ### Kế hoạch
 
-* Setup SageMaker Model Monitor để theo dõi drift trên endpoint đang chạy.
-* Làm dashboard/alarm trên CloudWatch cho invocation, latency, lỗi.
-* Nối SNS để có gì là biết liền.
+* Thiết lập SageMaker Model Monitor để theo dõi data drift trên endpoint đang hoạt động.
+* Xây dựng dashboard và alarm trên CloudWatch cho số lượt gọi, độ trễ và lỗi.
+* Cấu hình thông báo SNS cho các cảnh báo quan trọng.
 
-### Kỳ vọng
+### Kết quả kỳ vọng
 
-* Nhìn được tình trạng model thay vì mù thông tin.
-* Biết sự cố trước khi user gặp phải, chứ không phải sau.
+* Có khả năng quan sát rõ ràng hiệu năng mô hình và data drift theo thời gian.
+* Cảnh báo giúp phát hiện sự cố trước khi ảnh hưởng đến người dùng.

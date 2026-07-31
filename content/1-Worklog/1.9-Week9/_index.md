@@ -7,20 +7,20 @@ pre: " <b> 1.9. </b> "
 ---
 
 {{% notice note %}}
-Haven't gotten here yet — will update this with what actually happened once it's done.
+This week has not started at the time of writing. This section will be updated with actual results once completed.
 {{% /notice %}}
 
-### What I want to get done this week
+### Objectives
 
-* Actually know if the model is doing okay, instead of just hoping.
+* Establish visibility into model health.
 
 ### Plan
 
-* Set up SageMaker Model Monitor for data drift on the live endpoint.
-* Build CloudWatch dashboards/alarms for invocations, latency, errors.
-* Wire up SNS so I get notified if something breaks.
+* Set up SageMaker Model Monitor to track data drift on the live endpoint.
+* Build CloudWatch dashboards and alarms covering invocations, latency, and errors.
+* Configure SNS notifications for critical alerts.
 
-### What I'm hoping for
+### Expected Outcomes
 
-* Some visibility into model health instead of flying blind.
-* Get pinged before users notice something's wrong, not after.
+* Clear visibility into model performance and data drift over time.
+* Alerts that surface issues before they affect users.

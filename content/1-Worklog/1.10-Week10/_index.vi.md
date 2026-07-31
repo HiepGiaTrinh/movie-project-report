@@ -7,20 +7,20 @@ pre: " <b> 1.10. </b> "
 ---
 
 {{% notice note %}}
-Chưa tới tuần này lúc viết — sẽ cập nhật lại thành thực tế sau khi làm xong.
+Tuần này chưa bắt đầu tại thời điểm viết báo cáo. Nội dung sẽ được cập nhật thành kết quả thực tế sau khi hoàn thành.
 {{% /notice %}}
 
-### Mục tiêu tuần 10
+### Mục tiêu
 
-* Đảm bảo cả hệ thống — ML, backend, frontend — chạy chung được với nhau, chứ không chỉ riêng lẻ.
+* Xác nhận các thành phần ML, backend và frontend hoạt động ổn định cùng nhau.
 
 ### Kế hoạch
 
-* Test hồi quy toàn bộ cùng mấy bạn Frontend/Backend/DevOps.
-* Test feedback loop thật: gửi rating mới, xem retraining có chạy không, model mới có lên không.
-* Sửa cái gì hỏng thì sửa.
+* Thực hiện kiểm thử hồi quy toàn diện cùng các thành viên Frontend, Backend và DevOps.
+* Kiểm thử feedback loop end-to-end: gửi rating mới, xác nhận retraining được kích hoạt và mô hình mới được triển khai.
+* Xử lý các vấn đề phát sinh trong quá trình kiểm thử tích hợp.
 
-### Kỳ vọng
+### Kết quả kỳ vọng
 
-* Hệ thống chạy ổn khi mọi thứ hoạt động cùng lúc.
-* Chứng minh được feedback loop thực sự làm gợi ý tốt hơn, chứ không chỉ là chạy được.
+* Hệ thống ổn định, tích hợp đầy đủ và sẵn sàng để demo.
+* Xác nhận feedback loop thực sự cải thiện chất lượng gợi ý theo thời gian.

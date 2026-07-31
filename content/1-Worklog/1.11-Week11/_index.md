@@ -7,20 +7,20 @@ pre: " <b> 1.11. </b> "
 ---
 
 {{% notice note %}}
-Haven't gotten here yet — will update this with what actually happened once it's done.
+This week has not started at the time of writing. This section will be updated with actual results once completed.
 {{% /notice %}}
 
-### What I want to get done this week
+### Objectives
 
-* Turn all the work into something people can actually read.
+* Document the completed work clearly for others to review.
 
 ### Plan
 
-* Write the bilingual Workshop section for this report.
-* Draw up proper architecture diagrams for the ML part.
-* Draft blog content about the SageMaker work for the study group.
+* Write the bilingual Workshop section of this report.
+* Prepare architecture diagrams for the ML component following AWS conventions.
+* Draft blog content on the SageMaker work for the AWS Study Group.
 
-### What I'm hoping for
+### Expected Outcomes
 
-* Documentation someone else could actually follow.
-* Diagrams ready for the final presentation.
+* Complete, reviewable documentation for the ML component.
+* Diagrams and content ready for the final presentation.

@@ -7,20 +7,20 @@ pre: " <b> 1.8. </b> "
 ---
 
 {{% notice note %}}
-Haven't gotten here yet — will update this with what actually happened once it's done.
+This week has not started at the time of writing. This section will be updated with actual results once completed.
 {{% /notice %}}
 
-### What I want to get done this week
+### Objectives
 
-* Stop retraining by hand — automate it.
+* Move from manual retraining to an automated pipeline.
 
 ### Plan
 
-* Build a SageMaker Pipeline chaining Processing → Training → Evaluation.
-* Set up an EventBridge rule to trigger it on a schedule.
-* Add a check so a new model only gets promoted if it actually beats the current one.
+* Build a SageMaker Pipeline that chains Processing, Training, and Evaluation steps.
+* Configure an EventBridge rule to trigger retraining on a schedule.
+* Add a promotion gate so a new model is only deployed if it outperforms the current one.
 
-### What I'm hoping for
+### Expected Outcomes
 
-* A retraining pipeline that runs on its own.
-* Some kind of guardrail so a worse model never makes it to production by accident.
+* An automated, schedulable retraining pipeline.
+* A safeguard to prevent a lower-performing model from reaching production.
