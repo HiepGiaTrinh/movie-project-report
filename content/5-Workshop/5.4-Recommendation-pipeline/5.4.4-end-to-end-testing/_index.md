@@ -24,6 +24,14 @@ Pass criteria:
 - Movie rankings are retrieved from `PopularMovies` and enriched with metadata from `Movies`.
 - Guest requests generate zero interaction records in DynamoDB.
 
+![Movie catalog displayed in the frontend](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-catalog.png)
+
+*The frontend movie catalog rendered from data returned by the backend.*
+
+![Simulated movie playback page](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-playback.png)
+
+*The movie detail page with simulated playback using poster artwork.*
+
 ## 2. Registration and Onboarding Verification
 
 1. Register a dedicated acceptance test user.
@@ -42,6 +50,10 @@ Pass criteria:
 - The response retains identical `event_id` or `interaction_key` identifiers.
 - DynamoDB contains exactly one corresponding item.
 - Rating and reaction state can be queried and verified via read endpoints.
+
+![Movie details and interaction controls](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-detail-interactions.png)
+
+*The movie detail page displaying metadata and rating, reaction, and sharing controls.*
 
 ## 4. Personalized Recommendation Workflow Verification
 
@@ -79,6 +91,10 @@ python scripts/test_sagemaker_endpoint.py \
   --scenario onboarding_user \
   --genre "<GENRE>"
 ```
+
+![SageMaker endpoint verification through AWS CLI](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/sagemaker-endpoint-cli.jpg)
+
+*AWS CLI confirms that `movie-rec-endpoint` is in `InService` status.*
 
 {{% notice warning %}}
 Endpoint test paths pass only when the target environment has a compatible serving package. The current repository does not include code to build or deploy this endpoint container.

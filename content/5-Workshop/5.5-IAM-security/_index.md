@@ -14,6 +14,10 @@ The repository uses the default boto3 credential provider chain:
 
 Exact role names, JSON policy definitions, trust relationships, and resource ARNs are not stored within this repository.
 
+![Credential flow between developers, EC2, and AWS services](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
+
+*Developer profiles or EC2 instance profiles provide credentials to boto3, while the JWT secret is managed separately for FastAPI authentication.*
+
 ## Principal Permission Matrix
 
 | Principal | Required Permissions | Resource Scope |

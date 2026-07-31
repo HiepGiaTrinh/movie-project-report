@@ -24,7 +24,9 @@ flowchart LR
     S3 --> Training[Retraining]
 {{< /mermaid >}}
 
-<!-- IMAGE-5.3-01: Data flow diagram based on verified components. -->
+![Data processing flow from Kaggle CSV to S3 and DynamoDB](/images/5-Workshop/5.3-Data-layer/data-ingestion-flow.jpg)
+
+*Local data processing and S3 synchronization flow. The DynamoDB loader remains missing from the repository.*
 
 ## S3 Data Structure
 

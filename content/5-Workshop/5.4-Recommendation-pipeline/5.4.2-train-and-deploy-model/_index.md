@@ -76,7 +76,9 @@ python scripts/sagemaker_retrain_job.py \
   --wait
 ```
 
-<!-- IMAGE-5.4.2-01: Console output showing SageMaker Processing Job in Completed status with ARNs redacted. -->
+![Completed SageMaker Processing Job](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.2-train-and-deploy-model/sagemaker-processing-job.jpg)
+
+*The retraining Processing Job completed after eight minutes.*
 
 Check job status via CLI:
 
@@ -108,7 +110,9 @@ Include screenshots of `InService` endpoints only after the engineering team imp
 - Provisioning scripts for SageMaker Model, EndpointConfig, and Endpoint resources.
 - Rollback mechanisms and auto-scaling rules.
 
-<!-- IMAGE-5.4.2-03: Include only after endpoint deployment logic is added and verified. -->
+![SageMaker endpoint in InService status](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.2-train-and-deploy-model/sagemaker-endpoint.jpg)
+
+*The existing endpoint is in `InService` status. This image confirms the live resource but does not replace the missing serving and deployment source code.*
 
 ## Completion Criteria
 

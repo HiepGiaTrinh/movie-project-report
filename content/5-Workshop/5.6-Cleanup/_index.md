@@ -29,16 +29,9 @@ This workshop has covered:
 
 ## Resource Cleanup Sequence
 
-{{< mermaid align="center" >}}
-flowchart TD
-    A[Stop traffic, CI deployments, and schedulers] --> B[Archive required logs, reports, and artifacts]
-    B --> C[Stop endpoints, jobs, and EC2 instances]
-    C --> D[Delete endpoints before EndpointConfigs and Models]
-    D --> E[Export data before deleting DynamoDB tables]
-    E --> F[Delete objects and non-current versions before S3 bucket]
-    F --> G[Detach policies before deleting IAM roles]
-    G --> H[Audit AWS Billing and resource inventory]
-{{< /mermaid >}}
+![AWS resource cleanup dependency order](/images/5-Workshop/5.6-Cleanup/cleanup-dependency-flow.jpg)
+
+*Resources are removed in dependency order to preserve required data and avoid deleting resources that are still referenced.*
 
 Execute cleanup operations in the following strict order:
 

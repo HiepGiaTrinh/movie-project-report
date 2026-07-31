@@ -42,6 +42,10 @@ The guest workflow only reads from `PopularMovies`, then uses `BatchGetItem` to 
 
 The backend checks `RecommendationCache` first. If a valid cache entry exists, results are returned directly without calling the endpoint. On a cache miss, the backend constructs the request context, calls SageMaker Runtime, validates the response, writes to cache on a best-effort basis, and enriches results with movie metadata.
 
+![Recommendation request flow through cache and SageMaker endpoint](/images/5-Workshop/5.1-Workshop-overview/backend-request-flow.jpg)
+
+*Recommendation request flow: check the cache, invoke SageMaker on a cache miss, and retrieve metadata from the Movies table.*
+
 ## Retraining Workflow
 
 1. Kaggle CSV files are profiled, cleaned, and MovieLens IDs are mapped to TMDB movie IDs.
