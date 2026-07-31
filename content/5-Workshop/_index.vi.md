@@ -8,16 +8,16 @@ pre: " <b> 5. </b> "
 
 Workshop này trình bày kiến trúc và quy trình vận hành của một hệ thống gợi ý phim được xây dựng bằng **React**, **FastAPI** và các dịch vụ AWS. Hệ thống sử dụng:
 
-![Giao diện chính của hệ thống Streamverse](/images/5-Workshop/ui-home-page.png)
-
-*Giao diện chính của ứng dụng xem phim và gợi ý nội dung.*
-
 - **Amazon DynamoDB** để lưu thông tin phim, tài khoản, hành vi người dùng và bộ nhớ đệm gợi ý.
 - **Amazon S3** để lưu dữ liệu thô, dữ liệu đã xử lý, tập huấn luyện, artifact mô hình và báo cáo đánh giá.
 - **Amazon SageMaker Processing Job** để chạy quy trình tái huấn luyện theo yêu cầu.
-- **Amazon SageMaker Runtime** làm đích gọi suy luận thời gian thực của backend.
+- **Amazon SageMaker Endpoint** làm đích gọi suy luận thời gian thực của backend.
 - **Amazon EC2** để chạy ứng dụng bằng Docker Compose.
 - **AWS IAM** để phân tách quyền của người triển khai, ứng dụng và SageMaker.
+
+![Giao diện chính của hệ thống Streamverse](/images/5-Workshop/ui-home-page.png)
+
+*Giao diện chính của ứng dụng xem phim và gợi ý nội dung.*
 
 ## Bài toán được giải quyết
 
@@ -36,9 +36,6 @@ Hệ thống hỗ trợ ba tình huống chính:
 - GitHub Actions triển khai ứng dụng lên một máy chủ EC2 đã tồn tại.
 - Mã ứng dụng sử dụng credential provider chain mặc định của AWS SDK.
 
-{{% notice warning %}}
-Repository hiện chưa chứa Infrastructure as Code, script nạp dữ liệu vào DynamoDB, SageMaker serving handler, script tạo Model/EndpointConfig/Endpoint, cấu hình IAM hoàn chỉnh, quy trình provision EC2 hoặc cleanup automation. Vì vậy workshop sẽ mô tả trung thực những phần đã có và đánh dấu rõ các bước cần được bổ sung.
-{{% /notice %}}
 
 ## Kết quả học tập
 
@@ -61,6 +58,3 @@ Sau khi hoàn thành workshop, bạn có thể:
 5. [IAM và bảo mật](5.5-IAM-security/)
 6. [Tổng kết và dọn dẹp tài nguyên](5.6-Cleanup/)
 
-{{% notice note %}}
-Không đưa access key, secret key, JWT hoặc nội dung file `.env` vào report và ảnh chụp màn hình.
-{{% /notice %}}

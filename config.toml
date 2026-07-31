@@ -1,4 +1,4 @@
-baseURL = "https://tanghongai1704.github.io/movie-project-report/"
+baseURL = "https://hiepgiatrinh.github.io/movie-project-report/"
 relativeURLs = false
 # Prefix site-relative URLs such as /images/... with baseURL so assets work
 # when this project site is served from the /movie-project-report/ subpath.
