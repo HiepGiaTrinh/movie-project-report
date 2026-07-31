@@ -54,6 +54,10 @@ If evidence from the AWS Console or CLI is unavailable, record the state as **un
 
 *The S3 bucket used to store datasets, model artifacts, and evaluation reports.*
 
+![S3 bucket overview](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-overview.png)
+
+*The bucket is deployed in `ap-southeast-1`; the overview directly confirms the ARN and Region of the resource being verified.*
+
 ```bash
 aws s3api head-bucket \
   --bucket "<S3_BUCKET_NAME>"
@@ -63,11 +67,24 @@ aws s3api get-public-access-block \
 
 aws s3api get-bucket-encryption \
   --bucket "<S3_BUCKET_NAME>"
+
+aws s3api get-bucket-versioning \
+  --bucket "<S3_BUCKET_NAME>"
 ```
 
-The bucket must exist, enforce Block Public Access, and have appropriate default encryption enabled. Versioning and lifecycle rules are recommended in documentation but are not provisioned by application source code.
+The bucket must exist, enforce Block Public Access, and have appropriate default encryption enabled. For the inspected bucket, Block Public Access is on, default encryption uses SSE-S3, and versioning is `Enabled`. Application source code does not provision these settings; lifecycle configuration must still be verified separately when applicable.
 
-<!-- IMAGE-5.3.1-02: S3 encryption, Block Public Access, and versioning configuration with sensitive details redacted. -->
+![S3 bucket Block Public Access settings](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-block-public-access.png)
+
+*`Block all public access` is `On`, preventing public access through ACLs and bucket policies.*
+
+![S3 bucket default encryption settings](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-encryption.png)
+
+*Default server-side encryption uses Amazon S3 managed keys (SSE-S3).*
+
+![S3 bucket versioning settings](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-versioning.png)
+
+*Bucket Versioning is `Enabled`; MFA delete is `Disabled`.*
 
 ## 4. Verify Logical Prefixes
 

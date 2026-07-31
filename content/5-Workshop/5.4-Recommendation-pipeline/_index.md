@@ -15,20 +15,9 @@ The pipeline supports multiple strategies to serve users based on their current 
 - **Collaborative Filtering:** Employs implicit ALS to generate recommendation candidates for returning users.
 - **Hybrid Ranking:** Combines weighted Reciprocal Rank Fusion (RRF), recent similarity signals, and business-rule filtering.
 
-{{< mermaid align="center" >}}
-flowchart LR
-    Input[S3 processed/training/exports] --> Job[Local retrain or SageMaker Processing]
-    Job --> ALS[Implicit ALS]
-    Job --> Eval[Offline Evaluation]
-    Eval --> Gate[Promotion Gate]
-    Gate --> Artifacts[Versioned Artifacts]
-    Artifacts --> Latest[LATEST.json]
-    Artifacts --> S3[(S3 models/evaluation)]
-    Latest -. Requires serving package .-> Endpoint[SageMaker Endpoint]
-    Endpoint --> API[FastAPI Provider]
-{{< /mermaid >}}
+![Model training, evaluation, artifact management, and serving workflow](/images/5-Workshop/5.4-Recommendation-pipeline/recommendation-pipeline-flow.png)
 
-<!-- IMAGE-5.4-01: Training, evaluation, promotion, and serving workflow diagram. -->
+*The model training and evaluation pipeline applies a promotion gate, stores artifacts in S3, and serves the promoted model through a SageMaker Endpoint and the FastAPI provider.*
 
 ## Inputs and Outputs
 

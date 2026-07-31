@@ -15,20 +15,9 @@ Pipeline hỗ trợ nhiều chiến lược để phục vụ từng trạng th�
 - **Collaborative filtering:** sử dụng implicit ALS để tạo candidate cho người dùng quay lại.
 - **Hybrid ranking:** kết hợp weighted Reciprocal Rank Fusion, độ tương đồng gần đây và business-rule filtering.
 
-{{< mermaid align="center" >}}
-flowchart LR
-    Input[S3 processed/training/exports] --> Job[Local retrain hoặc SageMaker Processing]
-    Job --> ALS[Implicit ALS]
-    Job --> Eval[Offline Evaluation]
-    Eval --> Gate[Promotion Gate]
-    Gate --> Artifacts[Versioned Artifacts]
-    Artifacts --> Latest[LATEST.json]
-    Artifacts --> S3[(S3 models/evaluation)]
-    Latest -. cần serving package .-> Endpoint[SageMaker Endpoint]
-    Endpoint --> API[FastAPI Provider]
-{{< /mermaid >}}
+![Luồng huấn luyện, đánh giá, quản lý artifact và phục vụ mô hình](/images/5-Workshop/5.4-Recommendation-pipeline/recommendation-pipeline-flow.png)
 
-<!-- IMAGE-5.4-01: Sơ đồ train, evaluation, promotion và serving. -->
+*Pipeline huấn luyện và đánh giá mô hình, kiểm tra promotion gate, lưu artifact trên S3, sau đó phục vụ qua SageMaker Endpoint và FastAPI provider.*
 
 ## Input và output
 

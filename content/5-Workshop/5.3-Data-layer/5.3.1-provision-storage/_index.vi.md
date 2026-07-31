@@ -54,6 +54,10 @@ Nếu chưa có bằng chứng từ AWS Console hoặc CLI, hãy ghi trạng th�
 
 *S3 bucket được sử dụng để lưu dataset, model artifact và báo cáo.*
 
+![Thông tin tổng quan của S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-overview.png)
+
+*Bucket được triển khai tại Region `ap-southeast-1`; ảnh tổng quan xác nhận trực tiếp ARN và Region của tài nguyên đang được kiểm tra.*
+
 ```bash
 aws s3api head-bucket \
   --bucket "<S3_BUCKET_NAME>"
@@ -63,11 +67,24 @@ aws s3api get-public-access-block \
 
 aws s3api get-bucket-encryption \
   --bucket "<S3_BUCKET_NAME>"
+
+aws s3api get-bucket-versioning \
+  --bucket "<S3_BUCKET_NAME>"
 ```
 
-Bucket phải tồn tại, có Block Public Access và encryption phù hợp. Versioning và lifecycle được khuyến nghị trong tài liệu nhưng không được provision bởi source code.
+Bucket phải tồn tại, có Block Public Access và encryption phù hợp. Đối với bucket được khảo sát, Block Public Access đang bật, mã hóa mặc định là SSE-S3 và versioning đang ở trạng thái `Enabled`. Source code ứng dụng không tự provision các thiết lập này; lifecycle vẫn cần được kiểm tra riêng nếu được áp dụng.
 
-<!-- IMAGE-5.3.1-02: Thiết lập encryption, public access block và versioning của S3, đã che thông tin nhạy cảm. -->
+![Thiết lập Block Public Access của S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-block-public-access.png)
+
+*`Block all public access` đang ở trạng thái `On`, ngăn truy cập công khai qua ACL và bucket policy.*
+
+![Thiết lập mã hóa mặc định của S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-encryption.png)
+
+*Mã hóa mặc định phía máy chủ sử dụng khóa do Amazon S3 quản lý (SSE-S3).*
+
+![Thiết lập versioning của S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-versioning.png)
+
+*Bucket Versioning đang ở trạng thái `Enabled`; MFA delete đang `Disabled`.*
 
 ## 4. Kiểm tra các prefix
 
