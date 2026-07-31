@@ -54,5 +54,6 @@ Processing Job, local inference engine và real-time endpoint là ba thành ph�
 2. [Huấn luyện, đánh giá và chạy SageMaker Processing Job](5.4.2-train-and-deploy-model/)
 3. [Tích hợp ứng dụng trên EC2](5.4.3-integrate-ec2-application/)
 4. [Kiểm thử đầu cuối](5.4.4-end-to-end-testing/)
+5. [Kiểm thử model](5.4.5-model-testing/)
 
 **Nguồn đối chiếu:** `ml/README.md`, `ml/configs/model_serving.yaml`, `ml/scripts/sagemaker_retrain_job.py` và backend recommendation provider.
