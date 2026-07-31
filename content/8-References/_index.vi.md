@@ -62,10 +62,3 @@ Các liên kết tài liệu AWS trên được kiểm tra lần cuối vào ng�
 | `configs/aws.yaml` | Region, S3 prefix, SageMaker và promotion criteria. |
 | `scripts/sagemaker_retrain_job.py` | Khởi chạy hoặc dry-run SageMaker retraining job. |
 | `scripts/test_sagemaker_endpoint.py` | Mô tả và kiểm thử SageMaker Endpoint. |
-
-## Ghi chú cập nhật
-
-- Ưu tiên permalink, release hoặc tag cố định để tài liệu không trỏ tới nội dung thay đổi ngoài ý muốn.
-- Ghi lại commit SHA hoặc phiên bản phát hành được dùng làm bằng chứng cho workshop.
-- Kiểm tra quyền truy cập của mã nguồn và thư mục demo trước khi phát hành.
-- Kiểm tra lại toàn bộ liên kết trước mỗi lần cập nhật báo cáo.
