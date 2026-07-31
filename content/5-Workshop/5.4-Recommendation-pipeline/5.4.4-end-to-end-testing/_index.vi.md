@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.4.4. </b> "
 ---
 
-# Kiểm thử đầu cuối
-
 Phần này kiểm tra riêng từng luồng guest, authentication, interaction, cache và endpoint. Sử dụng một test user riêng và một `movie_id` có thật trong môi trường thử nghiệm.
 
 ## 1. Kiểm tra guest path

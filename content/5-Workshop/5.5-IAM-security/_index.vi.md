@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-# IAM, nguyên tắc đặc quyền tối thiểu và bảo mật
-
 Repository sử dụng default credential provider chain của boto3:
 
 - Developer nên dùng AWS IAM Identity Center hoặc profile.

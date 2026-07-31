@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.4. </b> "
 ---
 
-# Pipeline gợi ý
-
 Pipeline hỗ trợ nhiều chiến lược để phục vụ từng trạng thái người dùng.
 
 ## Các chiến lược gợi ý

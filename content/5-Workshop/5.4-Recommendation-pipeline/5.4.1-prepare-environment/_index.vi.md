@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.4.1. </b> "
 ---
 
-# Chuẩn bị môi trường gợi ý
-
 ## 1. Khởi tạo ML submodule
 
 Tại thư mục gốc repository:

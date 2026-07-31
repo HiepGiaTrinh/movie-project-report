@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.3.1. </b> "
 ---
 
-# Kiểm tra và chuẩn bị tài nguyên lưu trữ
-
 Repository không chứa Terraform, CloudFormation, CDK hoặc công cụ Infrastructure as Code tương đương. Vì vậy phần này chỉ kiểm tra những tài nguyên đã được platform team tạo, không tự động provision tài nguyên mới.
 
 ## 1. Kiểm tra năm bảng DynamoDB

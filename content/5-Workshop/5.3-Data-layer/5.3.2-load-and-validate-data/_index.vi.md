@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.3.2. </b> "
 ---
 
-# Xử lý, tải và xác minh dữ liệu
-
 Phần này chạy data pipeline cục bộ, kiểm tra tính quyết định của output, đồng bộ artifact lên S3 và xác định rõ khoảng trống nạp dữ liệu vào DynamoDB.
 
 ## 1. Chuẩn bị dữ liệu thô

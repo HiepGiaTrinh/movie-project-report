@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.4.3. </b> "
 ---
 
-# Tích hợp ứng dụng trên EC2
-
 Repository không tạo EC2. Workflow GitHub Actions giả định một host đã tồn tại, có thể kết nối SSH và đã được chuẩn bị để chạy Docker Compose.
 
 ## 1. Chuẩn bị EC2 host

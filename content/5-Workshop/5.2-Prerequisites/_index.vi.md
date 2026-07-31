@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.2. </b> "
 ---
 
-# Điều kiện chuẩn bị
-
 ## 1. Công cụ cần thiết
 
 Môi trường thực hành cần:

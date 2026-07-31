@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.3. </b> "
 ---
 
-# Tầng dữ liệu với S3 và DynamoDB
-
 Amazon S3 và Amazon DynamoDB đảm nhận hai vai trò khác nhau:
 
 - **S3** chứa dataset và artifact có kích thước lớn, được sử dụng trong các quy trình batch.

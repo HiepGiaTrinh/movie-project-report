@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-# Kiến trúc và luồng xử lý tổng thể
-
 Hệ thống gồm giao diện **React/Vite**, backend **FastAPI**, năm bảng DynamoDB, một S3 bucket chứa dữ liệu và artifact, recommendation provider và hai cách chạy tái huấn luyện: cục bộ/EC2 hoặc SageMaker Processing Job.
 
 ## Kiến trúc tổng thể

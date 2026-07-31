@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.4.2. </b> "
 ---
 
-# Huấn luyện, đánh giá và chạy SageMaker Processing Job
-
 ## 1. Huấn luyện collaborative model
 
 `train.py` đọc chronological training split, áp dụng quy tắc positive, negative và neutral, sau đó huấn luyện mô hình **implicit ALS**.

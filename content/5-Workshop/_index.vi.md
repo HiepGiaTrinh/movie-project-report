@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Xây dựng hệ thống gợi ý phim trên AWS
-
 Workshop này trình bày kiến trúc và quy trình vận hành của một hệ thống gợi ý phim được xây dựng bằng **React**, **FastAPI** và các dịch vụ AWS. Hệ thống sử dụng:
 
 - **Amazon DynamoDB** để lưu thông tin phim, tài khoản, hành vi người dùng và bộ nhớ đệm gợi ý.

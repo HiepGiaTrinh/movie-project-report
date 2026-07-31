@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.6. </b> "
 ---
 
-# Tổng kết và dọn dẹp tài nguyên
-
 Workshop đã trình bày:
 
 - Data pipeline và S3 artifact layout.
