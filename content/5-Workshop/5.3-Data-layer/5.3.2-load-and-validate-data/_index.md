@@ -83,7 +83,9 @@ After reviewing the planned object transfers and receiving approval:
 python scripts/aws_sync.py push
 ```
 
-<!-- IMAGE-5.3.2-02: List of artifacts under S3 prefixes with bucket names and Account IDs redacted. -->
+![Data prefixes in the S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.2-load-and-validate-data/s3-bucket-prefixes.png)
+
+*The `datasets`, `evaluation`, `inference`, `logs`, `models`, and `training` storage zones in the S3 bucket.*
 
 {{% notice warning %}}
 `aws_sync.py` currently does not include raw data in `sync.pairs`; `--only raw` flags described in root-level S3 documentation do not align with current code implementation.
@@ -106,6 +108,10 @@ python scripts/export_interactions.py --upload
 ```
 
 Full table scans incur costs proportional to table size. The repository currently lacks a standard scheduler linking the exporter to SageMaker Processing Jobs.
+
+![Production feedback flow from frontend interactions to retraining](/images/5-Workshop/5.3-Data-layer/5.3.2-load-and-validate-data/production-feedback-flow.jpg)
+
+*Interactions are written to DynamoDB, exported to S3, and used as input for the next retraining cycle.*
 
 ## Completion Criteria
 

@@ -76,7 +76,9 @@ python scripts/sagemaker_retrain_job.py \
   --wait
 ```
 
-<!-- IMAGE-5.4.2-01: SageMaker Processing Job ở trạng thái Completed, đã che ARN/account ID. -->
+![SageMaker Processing Job hoàn tất](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.2-train-and-deploy-model/sagemaker-processing-job.jpg)
+
+*Processing Job phục vụ retraining đã hoàn tất sau tám phút.*
 
 Kiểm tra trạng thái:
 
@@ -108,7 +110,9 @@ Chỉ thêm ảnh endpoint `InService` sau khi team bổ sung:
 - Model, EndpointConfig và Endpoint deployment.
 - Cơ chế rollback và autoscaling.
 
-<!-- IMAGE-5.4.2-03: Chỉ thêm sau khi endpoint deployment được bổ sung và xác minh. -->
+![SageMaker endpoint ở trạng thái InService](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.2-train-and-deploy-model/sagemaker-endpoint.jpg)
+
+*Endpoint hiện hữu đang ở trạng thái `InService`. Ảnh xác nhận tài nguyên đang hoạt động nhưng không thay thế phần serving/deployment source còn thiếu trong repository.*
 
 ## Tiêu chí hoàn tất
 

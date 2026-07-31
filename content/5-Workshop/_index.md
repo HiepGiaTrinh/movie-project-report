@@ -8,6 +8,10 @@ pre: " <b> 5. </b> "
 
 This workshop presents the architecture and operational workflow of a movie recommendation system built with **React**, **FastAPI**, and AWS services. The system utilizes:
 
+![Streamverse movie recommendation system home page](/images/5-Workshop/ui-home-page.png)
+
+*The main interface of the movie streaming and recommendation application.*
+
 - **Amazon DynamoDB** to store movie details, user accounts, user interaction history, and recommendation cache.
 - **Amazon S3** to store raw data, processed data, training sets, model artifacts, and evaluation reports.
 - **Amazon SageMaker Processing Job** to execute on-demand retraining pipelines.

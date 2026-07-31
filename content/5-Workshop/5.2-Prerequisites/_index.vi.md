@@ -57,10 +57,6 @@ Repository không tự provision hạ tầng. Trước khi thực hành cần c�
 - Một SageMaker endpoint tương thích và ở trạng thái `InService` nếu kiểm tra personalized cache miss.
 - Một EC2 đã được provision nếu sử dụng workflow deploy của GitHub.
 
-{{% notice warning %}}
-Không bật hoặc tạo endpoint chỉ để vượt qua prerequisite. Guest flow vẫn có thể hoạt động khi SageMaker bị tắt.
-{{% /notice %}}
-
 ## 5. Chuẩn bị dataset
 
 Các file CSV được khai báo trong `ml/configs/data_pipeline.yaml`, gồm dữ liệu metadata, ratings, links, credits, keywords và các tập nhỏ dùng cho profiling. Dữ liệu thô không được commit vào Git; hãy đặt chúng đúng thư mục input được cấu hình trong ML project.
@@ -91,9 +87,6 @@ docker compose config --quiet
 
 Kết quả mong đợi: exit code `0` và `.env` không xuất hiện trong `git status`.
 
-{{% notice warning %}}
-File `frontend/src/config/environment.ts` đang bị bỏ qua bởi rule `.gitignore` dù được source code import. Một clone sạch có thể không build cho tới khi file cấu hình này được đưa vào Git hoặc được sinh ra bằng một quy trình chính thức.
-{{% /notice %}}
 
 ## 7. Cài dependency
 
@@ -120,7 +113,7 @@ python -m pip install -r requirements.txt -r requirements-aws.txt
 
 Exact IAM policy chưa có trong repository và phải được security owner cung cấp trước khi triển khai production.
 
-## Checklist
+<!-- ## Checklist
 
 - [ ] `ml/train.py` tồn tại.
 - [ ] `aws sts get-caller-identity` thành công.
@@ -129,4 +122,4 @@ Exact IAM policy chưa có trong repository và phải được security owner c
 - [ ] Frontend configuration module có quy trình tạo hoặc được đưa vào Git.
 - [ ] Tên resource và region đã được xác nhận bằng kênh riêng.
 
-**Nguồn đối chiếu:** `.env.example`, Dockerfiles, `requirements*.txt`, `docs/aws/project-deployment.md` và `.github/workflows/deploy.yml`.
+**Nguồn đối chiếu:** `.env.example`, Dockerfiles, `requirements*.txt`, `docs/aws/project-deployment.md` và `.github/workflows/deploy.yml`. -->

@@ -30,7 +30,9 @@ Repeat for the remaining four tables and verify:
 
 All tables must be in the `ACTIVE` status.
 
-<!-- IMAGE-5.3.1-01: List of five ACTIVE tables and key schemas, with ARNs and Account IDs redacted. -->
+![Five DynamoDB tables in Active status](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/dynamodb-tables.png)
+
+*The five DynamoDB tables with their partition keys, sort keys, and Active status.*
 
 ## 2. Verify Additional Attributes
 
@@ -47,6 +49,10 @@ Attributes requiring verification outside source code:
 If evidence from the AWS Console or CLI is unavailable, record the state as **unconfirmed** rather than making assumptions.
 
 ## 3. Verify S3 Bucket
+
+![S3 bucket for the movie recommendation system](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket.png)
+
+*The S3 bucket used to store datasets, model artifacts, and evaluation reports.*
 
 ```bash
 aws s3api head-bucket \

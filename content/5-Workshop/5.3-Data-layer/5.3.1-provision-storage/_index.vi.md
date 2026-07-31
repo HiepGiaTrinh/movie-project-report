@@ -30,7 +30,9 @@ Lặp lại cho bốn bảng còn lại và xác nhận:
 
 Tất cả bảng phải ở trạng thái `ACTIVE`.
 
-<!-- IMAGE-5.3.1-01: Danh sách năm bảng ACTIVE và key schema, đã che ARN/account ID. -->
+![Năm bảng DynamoDB ở trạng thái Active](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/dynamodb-tables.png)
+
+*Năm bảng DynamoDB cùng partition key, sort key và trạng thái Active.*
 
 ## 2. Kiểm tra thuộc tính bổ sung
 
@@ -47,6 +49,10 @@ Các thuộc tính cần xác nhận ngoài source:
 Nếu chưa có bằng chứng từ AWS Console hoặc CLI, hãy ghi trạng thái là **chưa xác nhận**, không suy đoán.
 
 ## 3. Kiểm tra S3 bucket
+
+![S3 bucket của hệ thống gợi ý phim](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket.png)
+
+*S3 bucket được sử dụng để lưu dataset, model artifact và báo cáo.*
 
 ```bash
 aws s3api head-bucket \
@@ -86,11 +92,7 @@ Nếu thiếu bảng hoặc bucket:
 2. Ghi lại region, key schema, billing mode, TTL, encryption, lifecycle và IAM owner cần thiết.
 3. Yêu cầu platform/security team cung cấp tài nguyên hoặc IaC đã được review.
 
-{{% notice warning %}}
-Không tự tạo bảng hoặc bucket bằng câu lệnh chưa được review. Tài liệu cũ trong ML submodule mô tả schema khác với schema backend hiện tại và không được dùng làm runbook chính thức.
-{{% /notice %}}
-
-## Tiêu chí hoàn tất
+<!-- ## Tiêu chí hoàn tất
 
 - [ ] Năm bảng đều `ACTIVE`.
 - [ ] Key schema khớp hoàn toàn.
@@ -99,4 +101,4 @@ Không tự tạo bảng hoặc bucket bằng câu lệnh chưa được review.
 - [ ] TTL `expire_at` được ghi là đã xác nhận hoặc chưa xác nhận.
 - [ ] Không tài nguyên nào bị tạo hoặc thay đổi trong bước kiểm tra.
 
-**Nguồn đối chiếu:** `backend/app/aws/infrastructure.py`, `docs/aws/dynamodb.md` và `docs/aws/aws-setup.md`.
+**Nguồn đối chiếu:** `backend/app/aws/infrastructure.py`, `docs/aws/dynamodb.md` và `docs/aws/aws-setup.md`. -->

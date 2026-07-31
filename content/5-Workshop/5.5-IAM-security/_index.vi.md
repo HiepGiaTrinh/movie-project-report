@@ -14,6 +14,10 @@ Repository sử dụng default credential provider chain của boto3:
 
 Exact role name, JSON policy, trust relationship và ARN chưa được lưu trong repository.
 
+![Luồng credential giữa developer, EC2 và các dịch vụ AWS](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
+
+*Developer profile hoặc EC2 instance profile cung cấp credential cho boto3; JWT secret được quản lý riêng cho FastAPI authentication.*
+
 ## Ma trận principal và quyền
 
 | Principal | Quyền cần thiết | Phạm vi tài nguyên |

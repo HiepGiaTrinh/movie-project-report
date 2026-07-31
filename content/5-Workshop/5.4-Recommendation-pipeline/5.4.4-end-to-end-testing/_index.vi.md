@@ -24,6 +24,14 @@ Tiêu chí đạt:
 - Danh sách được lấy từ `PopularMovies` và bổ sung metadata từ `Movies`.
 - Guest request không tạo interaction.
 
+![Danh mục phim được hiển thị trên giao diện](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-catalog.png)
+
+*Danh mục phim được frontend hiển thị từ dữ liệu trả về bởi backend.*
+
+![Trang phát phim mô phỏng](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-playback.png)
+
+*Trang movie detail với khu vực phát phim mô phỏng bằng poster artwork.*
+
 ## 2. Kiểm tra đăng ký và onboarding
 
 1. Đăng ký một acceptance test user riêng.
@@ -42,6 +50,10 @@ Tiêu chí đạt:
 - Response giữ cùng `event_id` hoặc `interaction_key`.
 - DynamoDB chỉ có một item tương ứng.
 - Rating/reaction state có thể đọc lại.
+
+![Thông tin phim và các điều khiển tương tác](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-detail-interactions.png)
+
+*Trang chi tiết phim hiển thị metadata cùng các thao tác rating, reaction và share.*
 
 ## 4. Kiểm tra personalized path
 
@@ -79,6 +91,10 @@ python scripts/test_sagemaker_endpoint.py \
   --scenario onboarding_user \
   --genre "<GENRE>"
 ```
+
+![Kết quả kiểm tra SageMaker endpoint bằng AWS CLI](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/sagemaker-endpoint-cli.jpg)
+
+*AWS CLI xác nhận endpoint `movie-rec-endpoint` đang ở trạng thái `InService`.*
 
 {{% notice warning %}}
 Endpoint path chỉ có thể đạt khi môi trường đã có serving package tương thích. Repository hiện chưa chứa mã dựng endpoint này.

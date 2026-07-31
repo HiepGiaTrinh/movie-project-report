@@ -83,7 +83,9 @@ Sau khi review danh sách object và được phê duyệt:
 python scripts/aws_sync.py push
 ```
 
-<!-- IMAGE-5.3.2-02: Danh sách artifact trong các prefix S3, đã che bucket/account ID. -->
+![Các prefix dữ liệu trong S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.2-load-and-validate-data/s3-bucket-prefixes.png)
+
+*Các vùng dữ liệu `datasets`, `evaluation`, `inference`, `logs`, `models` và `training` trong S3 bucket.*
 
 {{% notice warning %}}
 `aws_sync.py` hiện không có raw data trong `sync.pairs`; hướng dẫn `--only raw` trong tài liệu S3 cấp root không khớp với code hiện tại.
@@ -93,9 +95,7 @@ python scripts/aws_sync.py push
 
 Pipeline tạo các serving JSONL nhưng repository chưa có loader chính thức cho `Movies` và `PopularMovies`.
 
-{{% notice warning %}}
-Không tự viết câu lệnh nạp DynamoDB trong report rồi mô tả như một bước đã được hỗ trợ. Chỉ coi data layer sẵn sàng khi loader, idempotency rule và bước xác minh item đã được bổ sung.
-{{% /notice %}}
+
 
 ## 7. Export interaction cho retraining
 
@@ -107,7 +107,11 @@ python scripts/export_interactions.py --upload
 
 Full table scan có chi phí tỷ lệ với kích thước bảng. Repository hiện chưa có scheduler chuẩn nối exporter với SageMaker Processing Job.
 
-## Tiêu chí hoàn tất
+![Luồng phản hồi production từ frontend tới retraining](/images/5-Workshop/5.3-Data-layer/5.3.2-load-and-validate-data/production-feedback-flow.jpg)
+
+*Interaction được ghi vào DynamoDB, export sang S3 rồi trở thành input cho lần retrain tiếp theo.*
+
+<!-- ## Tiêu chí hoàn tất
 
 - [ ] Required Parquet/JSONL artifact tồn tại.
 - [ ] Validation report phân loại rõ `PASS`, `WARNING` và `FAIL`.
@@ -115,4 +119,4 @@ Full table scan có chi phí tỷ lệ với kích thước bảng. Repository h
 - [ ] Serving export không có duplicate primary key.
 - [ ] DynamoDB loading vẫn được ghi là chưa hoàn chỉnh cho đến khi có loader.
 
-**Nguồn đối chiếu:** `ml/DATA_PIPELINE.md`, `ml/configs/data_pipeline.yaml`, `ml/scripts/aws_sync.py` và `ml/scripts/export_interactions.py`.
+**Nguồn đối chiếu:** `ml/DATA_PIPELINE.md`, `ml/configs/data_pipeline.yaml`, `ml/scripts/aws_sync.py` và `ml/scripts/export_interactions.py`. -->
