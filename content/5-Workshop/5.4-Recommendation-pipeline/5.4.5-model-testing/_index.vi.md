@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 5.4.5. </b> "
 ---
 
-# Kiểm thử mô hình gợi ý
-
 {{% notice info %}}
 Web xem phim của nhóm chưa có nhiều dữ liệu lịch sử tương tác của người dùng như `like`, `watch progress`, `share`, ... Do đó, việc kiểm thử mô hình gợi ý dựa trên dữ liệu lịch sử của người dùng sẽ được thực hiện bằng cách tạo ra các dữ liệu giả lập đối với `user_id` trong tập dữ liệu có sẵn. Các `user_id` này đã có lịch sử tương tác `rating` với các bộ phim.
 {{% /notice %}}
@@ -45,7 +43,7 @@ Tuy là người dùng khách nhưng vẫn có thể dùng kịch bản của `r
 
 ![guest 3](/images/5-Workshop/5.4.5-model-testing/guest-3.png)
 
-Mô hình gợi ý dựa trên **Collaborative Filtering** sẽ được sử dụng để gợi ý phim **Top-Rated** cho người dùng chưa đăng nhập.
+Mô hình gợi ý dựa trên **Gợi ý phi cá nhân hóa** để gợi ý phim **Top-Rated** cho người dùng chưa đăng nhập. Hệ thống sử dụng các bảng xếp hạng phim đã được tính toán từ trước.  Cụ thể, danh sách **Top-Rated** được xây dựng dựa trên thuật toán xếp hạng trọng số theo IMDb.
 
 ## New user
 
@@ -96,3 +94,40 @@ Danh sách phim sau khi mô hình đưa ra gợi ý:
 - **Bảo toàn sở thích dài hạn:** Các vị trí Top 1-4 đều thuộc về chuỗi phim **Harry Potter**. Hệ thống nhận diện sự liên kết giữa cú click ngắn hạn hiện tại và lịch sử đánh giá 5 sao trong quá khứ, từ đó đẩy các phim cùng series lên đầu. Điều này chứng minh hệ thống không bị mất trí nhớ khi người dùng có sở thích mới.
 
 - **Thỏa hiệp với tương tác ngắn hạn:** Tại các vị trí kế tiếp, mô hình bắt đầu chèn vào các bộ phim mang đặc trưng `Music` và `Romance`. Hệ thống đã thành công trong việc mở rộng không gian gợi ý, đáp ứng tức thời nhu cầu mới phát sinh của người dùng mà không cần chờ huấn luyện lại toàn bộ mô hình.
+
+## Đánh giá mô hình
+
+Để đo lường hiệu suất thực tế của các thuật toán gợi ý, quá trình kiểm thử định lượng được thực hiện trên tập dữ liệu `test`. Mỗi người dùng sẽ bị ẩn đi một bộ phim mà họ thực sự yêu thích, sau đó đối chiếu xem danh sách mô hình dự đoán có chứa bộ phim đó hay không.
+
+### 1. Cấu hình kiểm thử
+
+- **Tập đánh giá:** Mẫu 5.000 người dùng.
+- **Ngưỡng yêu thích:** Phim bị giấu phải có điểm `rating >= 4.0`.
+- **Kích thước danh sách gợi ý:** Top 20 phim.
+- **Baseline:** Sử dụng mô hình `popularity_train` (gợi ý phim phổ biến nhất toàn hệ thống). Baseline được dựng lại hoàn toàn từ tập huấn luyện để tránh rò rỉ dữ liệu.
+
+{{% notice note %}}
+Do đặc thù mỗi user chỉ có đúng một item bị giấu, các chỉ số `Recall@K` và `Precision@K` không mang thông tin độc lập. Do đó, việc đánh giá sẽ tập trung vào hai chỉ số lõi là **HitRate - Tỷ lệ trúng** và **NDCG - Chất lượng xếp hạng**
+{{% /notice %}}
+
+### 2. Kết quả đánh giá
+
+Bảng dưới đây tổng hợp hiệu suất của 4 luồng mô hình đã được triển khai:
+
+| Mô hình | HitRate@10 | NDCG@10 | Phim khác nhau | Độ phủ |
+| :--- | :---: | :---: | :---: | :---: |
+| **Popularity - Baseline** | 0.0332 | 0.0201 | 128 | 0.28% |
+| **Collaborative - ALS** | 0.1115 | 0.0537 | 2.411 | 5.31% |
+| **Content-based**| 0.0051 | 0.0035 | 17.530 | 38.59% |
+| **Hybrid - RRF** | 0.0818 | 0.0393 | 8.110 | 17.85% |
+
+### 3. Phân tích và Đánh giá
+
+Dựa trên các chỉ số thu được, chúng ta có thể rút ra những đánh giá quan trọng về đặc tính của từng thuật toán:
+
+- **Mô hình Popularity:** Chỉ đạt HitRate@10 ở mức 0.0332 và độ phủ vô cùng hạn hẹp (chỉ 0.28% với 128 phim được gợi ý ra). Lý do là mô hình này áp dụng chung một danh sách phim **Top-Rated** cho tất cả người dùng, dẫn đến tính cá nhân hóa bằng 0.
+- **Mô hình Collaborative Filtering:** Đóng vai trò là thuật toán dự đoán chính xác nhất hệ thống. ALS vượt trội hoàn toàn so với Baseline khi đạt HitRate@10 là 0.1115 (tăng **+235.8%**) và NDCG@10 cao nhất (0.0537). Tuy nhiên, nhược điểm chí mạng của phương pháp này đã xuất hiện: Có 57 người dùng bị rơi vào trạng thái **Cold-start** nên hệ thống hoàn toàn không thể sinh ra gợi ý cho họhọ.
+- **Mô hình Content-based:** Phương pháp này sử dụng 3 bộ phim đánh giá cao sớm nhất của người dùng làm mỏ neo để tìm phim tương đồng. Dù có độ chính xác thấp nhất (kém Baseline 84.8%), nó lại mang đến không gian khám phá khổng lồ với độ phủ lên tới **38.59%** (17.530 bộ phim khác nhau).
+- **Mô hình Hybrid - Kết hợp bằng Weighted RRF:** Đây là thành quả tối ưu nhất của hệ thống, minh chứng cho sự kết hợp hài hòa giữa các thuật toán. Mô hình lai giữ được độ chính xác rất cao, với HitRate@10 đạt 0.0818 (vượt Baseline **+146.4%**). Đáng chú ý, thuật toán kết hợp đã xử lý thành công toàn bộ 57 người dùng bị lỗi "Cold-start" của mạng ALS thông qua tầng Fallback toàn cục, đồng thời kéo độ phủ của hệ thống lên mức an toàn và đa dạng hóa danh mục lên 8.110 phim (17.85%).
+
+**Kết luận:** Mô hình Hybrid đã hoàn thành xuất sắc mục tiêu thiết kế, đó là duy trì độ chính xác cao từ dữ liệu quá quá khứ, đảm bảo tính đa dạng của nội dung và giải quyết triệt để sự cố không có dữ liệu quá khứ.
