@@ -1,6 +1,8 @@
 baseURL = "https://tanghongai1704.github.io/movie-project-report/"
 relativeURLs = false
-canonifyURLs = false
+# Prefix site-relative URLs such as /images/... with baseURL so assets work
+# when this project site is served from the /movie-project-report/ subpath.
+canonifyURLs = true
 defaultContentLanguage = "en"
 
 # Change the default theme to be use when building the site with Hugo
