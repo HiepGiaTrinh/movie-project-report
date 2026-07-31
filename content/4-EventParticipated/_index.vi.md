@@ -6,10 +6,10 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-Trong quá trình thực tập, mình đã tham gia 2 sự kiện do cộng đồng AWS First Cloud AI Journey tổ chức, mỗi sự kiện cho mình một góc nhìn khác về cộng đồng FCAJ ngoài phạm vi dự án cá nhân.
+Hai sự kiện mình tham gia trong đợt thực tập, đều do cộng đồng FCAJ tổ chức.
 
 ### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** "Cloud Architect" — Gameshow kiến thức AWS
+&emsp;**Tên sự kiện:** "Cloud Architect" — Gameshow kiến thức Cloud
 
 &emsp;**Thời gian:** 09:00 ngày 20/06/2026
 

@@ -7,20 +7,20 @@ pre: " <b> 1.10. </b> "
 ---
 
 {{% notice note %}}
-This is a planned week. Content will be updated with actual results once the work below is completed.
+Haven't gotten here yet — will update this with what actually happened once it's done.
 {{% /notice %}}
 
-### Week 10 Objectives:
+### What I want to get done this week
 
-* Validate that the whole system — ML, backend, frontend — works together reliably.
+* Make sure the whole thing — ML, backend, frontend — actually works together, not just in isolation.
 
-### Planned Tasks:
+### Plan
 
-* Run full regression tests across the recommendation pipeline together with the Frontend, Backend, and DevOps teammates.
-* Validate the feedback loop end-to-end: submit new ratings → retraining pipeline triggers → new model deployed.
-* Fix any remaining bugs found during integration testing.
+* Run full regression tests with the Frontend/Backend/DevOps folks.
+* Test the feedback loop for real: submit a rating, see retraining kick off, see the new model show up.
+* Fix whatever breaks.
 
-### Expected Outcomes:
+### What I'm hoping for
 
-* A stable, fully integrated system ready for demonstration.
-* Confirmation that the feedback loop measurably improves recommendations over time.
+* A system that holds together when everything runs at once.
+* Proof the feedback loop actually improves recommendations, not just that it runs.

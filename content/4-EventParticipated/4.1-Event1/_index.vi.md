@@ -6,30 +6,21 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Bài thu hoạch: "Cloud Architect" — Gameshow kiến thức AWS
+# "Cloud Architect" — Gameshow kiến thức Cloud
 
-### Mục đích của sự kiện
+FCAJ tổ chức cái này để đổi gió so với mấy buổi workshop thường — một trận đấu đối kháng thay vì ngồi nghe giảng, nhưng câu hỏi vẫn xoay quanh Cloud và kiến trúc thật.
 
-Team FCAJ tổ chức "Cloud Architect" để mang lại một hình thức chia sẻ kiến thức mới mẻ — một gameshow đối kháng thay vì một buổi thuyết trình — nhưng vẫn giúp các bạn intern củng cố kiến thức nền tảng về Cloud và thiết kế kiến trúc.
+### Luật chơi
 
-### Thể lệ
-
-- Hai đội thi đấu trực tiếp với nhau, lần lượt trả lời các câu hỏi theo mức độ khó tăng dần. Đội đạt điểm cao hơn sẽ tiến vào vòng sau; nếu hai đội bằng điểm ở cuối trận, câu hỏi phụ (câu 11) sẽ quyết định đội thắng dựa trên tốc độ trả lời.
-- **8 đội** tham gia, mỗi đội **5 thành viên**, không nhất thiết cùng nhóm thực tập (một bạn chỉ được tham gia đúng 1 đội).
-- Hai kỹ năng đặc biệt tạo thêm yếu tố "risk vs reward" cho trận đấu:
-  - **Rủi ro tối thiểu** (1 lượt): dùng cho câu trả lời không chắc chắn — không bị trừ điểm nếu sai, chỉ được nửa điểm nếu đúng.
-  - **Ngôi sao hi vọng** (1 lượt): dùng cho câu trả lời tự tin nhất — được x2 điểm nếu đúng, bị trừ x2 điểm nếu sai.
-- Đăng ký qua Google Form; vì số lượng có hạn nên ban tổ chức duyệt ngẫu nhiên, và một khi đã được duyệt thì bắt buộc phải tham gia đầy đủ.
+Hai đội đấu trực tiếp, trả lời câu hỏi khó dần theo vòng. Đội nào điểm cao hơn thì đi tiếp; nếu hoà tới cuối thì có câu hỏi phụ, ai nhanh hơn thắng. 8 đội đăng ký, mỗi đội 5 người, trộn lẫn giữa các nhóm thực tập khác nhau (nhưng một người chỉ được ở đúng 1 đội). Có thêm 2 "kỹ năng" dùng được 1 lần mỗi cái: "Rủi ro tối thiểu" — dùng khi không chắc, sai không bị trừ, đúng chỉ được nửa điểm — và "Ngôi sao hi vọng" — dùng khi tự tin, đúng x2 điểm, sai bị trừ x2. Đăng ký qua Google Form, vì giới hạn số lượng nên ban tổ chức duyệt ngẫu nhiên, đội nào được duyệt là bắt buộc phải tham gia.
 
 ### Vai trò của mình
 
-Mình tham gia với vai trò khán giả, đồng thời được mời hỗ trợ trả lời một số câu hỏi tiếp sức cho các đội thi trong lúc theo dõi trận đấu.
+Mình ngồi dưới coi là chính, nhưng có lúc được kêu lên hỗ trợ trả lời vài câu giúp mấy đội đang thi.
 
-### Trải nghiệm & bài học rút ra
+### Rút ra được gì
 
-- Ôn lại kiến thức Cloud và thiết kế kiến trúc theo cách chủ động, mang tính cạnh tranh nên nhớ lâu hơn hẳn so với nghe giảng thụ động.
-- Cơ chế "risk vs reward" qua 2 kỹ năng đặc biệt được thiết kế khá khéo, giúp trận đấu kịch tính tới tận câu hỏi cuối cùng — một ý tưởng đáng tham khảo cho các hoạt động team-building sau này.
-- Quan sát cách các đội quyết định thời điểm dùng "Rủi ro tối thiểu" hay "Ngôi sao hi vọng" dưới áp lực thời gian cũng là một bài học thực tế về ra quyết định nhóm trong điều kiện không chắc chắn.
+Ôn kiến thức Cloud kiểu thi đấu nhớ lâu hơn hẳn so với ngồi nghe giảng. Cơ chế risk/reward qua 2 kỹ năng đó là một lựa chọn hay, giữ trận đấu căng tới tận câu cuối. Nhìn mấy đội cân nhắc lúc nào nên liều lúc nào nên an toàn dưới áp lực thời gian cũng là một bài học nhỏ về ra quyết định nhóm.
 
 ### Hình ảnh sự kiện
 

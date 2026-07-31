@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Week 4 Objectives:
+### What I wanted to get done this week
 
-* Train the first version of the recommendation model using SageMaker Training Jobs.
-* Compare hyperparameter configurations to improve model quality.
+* Train an actual first version of the model using SageMaker Training jobs.
+* Try a few hyperparameter combos and see what works.
 
-### Tasks:
+### What I did
 
-* Completed **"Build, Train, and Deploy ML Models with Amazon SageMaker"** on AWS Skill Builder.
-* Implemented an **Alternating Least Squares (ALS)** collaborative-filtering model using the `implicit` library.
-* Packaged the training script and submitted it as a **SageMaker Training Job**, instead of training only on a local machine.
-* Experimented with hyperparameters (`factors`, `regularization`, `iterations`) to compare model quality.
-* Saved the resulting user/item factor matrices as model artifacts on S3.
+* Took "Build, Train, and Deploy ML Models with Amazon SageMaker" on Skill Builder.
+* Built an ALS collaborative-filtering model using the `implicit` library.
+* Packaged it up and ran it as a SageMaker Training job instead of just running it on my laptop.
+* Tried a few combos of factors/regularization/iterations to compare.
+* Saved the resulting factor matrices to S3.
 
-### Week 4 Achievements:
+### How it went
 
-* Trained ALS model running on SageMaker with reproducible, versioned training jobs.
-* Identified a reasonable hyperparameter configuration based on validation results.
-* Model artifacts versioned and stored on S3, ready for evaluation.
+* Have a trained ALS model, and the training runs are reproducible and versioned now, not one-off scripts.
+* Found a hyperparameter setup that looked reasonable on validation.
+* Model artifacts are on S3 and ready for the next step — evaluation.

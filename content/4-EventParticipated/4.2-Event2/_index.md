@@ -6,32 +6,29 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Event Report: FCAJ x Agentic AI Build Week Hackathon — Sharing Session
+# FCAJ x Agentic AI Build Week Hackathon — sharing session
 
-### Event Background
+Agentic AI Build Week (AABW), July 8–12 2026 in Ho Chi Minh City, was billed as the biggest Agentic AI buildathon in the region. A few FCAJ interns competed there, and afterward the community put together a session where those teams came back and walked everyone through what they built.
 
-Agentic AI Build Week (AABW) was billed as the largest Agentic AI buildathon in ASEAN, held July 8–12, 2026 in Ho Chi Minh City. Several FCAJ interns competed there, and the FCAJ community organized a follow-up sharing session where those teams presented their projects and what they learned from the 24-hour build.
+### What got shared
 
-### What Was Shared — Four Projects
+Four teams presented.
 
-**1. S.H.E.P.H.E.R.D (Team 3KA)** — a real-time crowd-monitoring and hazard-detection system built from live camera footage. It uses YOLO + ByteTrack to detect and track people, a SageMaker endpoint for inference, and an Amazon Bedrock AgentCore + Strands "Operation Agent" to turn detections into alerts and recommended actions for venue staff. On AWS, the pipeline runs through Kinesis Video Stream, an ECS-hosted stream processor, DynamoDB and S3 for incident evidence, and a dispatcher-facing path through CloudFront, WAF, API Gateway, and Lambda, backed by Cognito, IAM, Secrets Manager, CloudTrail, and CloudWatch. The team's retrospective was unusually honest about the emotional side of a hackathon — self-doubt and fear of failing at the start, followed by the pride of actually shipping a working end-to-end system.
+**3KA — S.H.E.P.H.E.R.D.** A crowd-monitoring system that watches live camera feed to spot congestion before it gets bad. YOLO + ByteTrack for detecting and tracking people, a SageMaker endpoint for inference, and a Bedrock AgentCore + Strands agent that turns what it sees into alerts and suggested actions for staff. On the AWS side: Kinesis Video Stream, an ECS-hosted processor, DynamoDB/S3 for incident logs, CloudFront/WAF/API Gateway/Lambda on the dispatcher side, plus the usual Cognito/IAM/Secrets Manager/CloudTrail/CloudWatch. What stuck with me most was how honest their retrospective was — starting out scared they weren't good enough, then actually shipping something that worked.
 
-**2. KFC Bot Agent (Team OneTeam)** — a multi-channel conversational ordering agent (Zalo, Messenger, with WhatsApp planned) designed so customers never have to leave the chat, download an app, or create an account to order. The idea was directly inspired by a real-world failure: McDonald's ending its AI drive-thru ordering trial after issues at over 100 US locations. The architecture centers on Amazon Bedrock AgentCore (Runtime + Gateway) as the decision-making core, with Lambda handling ingestion/orchestration/worker tasks, SQS for task queuing, DynamoDB and OpenSearch for session and vector storage, and a full security/observability layer (CloudWatch, X-Ray, CloudTrail, GuardDuty, Secrets Manager, IAM). This team won the **AWS Track** at AABW.
+**OneTeam — KFC Bot Agent.** A conversational ordering bot across Zalo/Messenger (WhatsApp planned) so people can order without leaving the chat or making an account. They pitched it off the back of McDonald's actually pulling their AI drive-thru after it flopped at 100+ locations. Architecture-wise, Bedrock AgentCore does the decision-making, Lambda handles the ingestion/orchestration side, SQS queues tasks, DynamoDB/OpenSearch handle session and vector storage, and there's a full security stack on top (CloudWatch, X-Ray, CloudTrail, GuardDuty, Secrets Manager, IAM). They won the AWS Track.
 
-**3. Signal Scout** — a platform that tracks public corporate-restructuring signals to support decisions by corporate-strategy, risk-management, and competitive-intelligence teams. Its most interesting design choice is splitting the agent into two separate Bedrock AgentCore sub-agents: a **Crawler Subagent** (pulling data via TinyFish and Apify) and an **Analysis Subagent** (applying Bedrock Guardrails and logging through Langfuse). The team also presented a detailed operating-cost breakdown (roughly $17–130/month on AWS alone, plus third-party costs for Apify/TinyFish/Langfuse) — a useful reminder to estimate the real running cost of an AI agent before building one.
+**Signal Scout.** Tracks public signals of corporate restructuring for strategy/risk/competitive-intel teams. The interesting bit is splitting the agent in two — a Crawler subagent (pulling data via TinyFish and Apify) and an Analysis subagent (running Bedrock Guardrails, logging through Langfuse). They also broke down running costs pretty precisely — something like $17–130/month on AWS alone, more once you add the third-party tools. Good reminder that agents aren't free to run.
 
-**4. Solution Architect Professional AI Native App (Team Plan V)** — a tool that automates repetitive Solution Architect work: parsing a customer's request in natural language, drafting a high-level architecture, auto-generating a draw.io diagram using the official AWS Architecture Icons, and producing a directional AWS cost estimate. It runs on ECS Fargate (backend + agent services) inside a dedicated VPC with PostgreSQL, calls Amazon Bedrock, integrates with Draw.io and AWS Pricing via MCP, and is deployed with Terraform. The trigger for the idea was very relatable: a customer asking for an AI system design "immediately," while a Solution Architect still needs time to extract requirements, draft an architecture, and estimate cost.
+**Plan V — Solution Architect Professional AI Native App.** A tool that does the boring parts of an SA's job for them: reads a customer's request in plain language, drafts a rough architecture, spits out a draw.io diagram using actual AWS icons, and gives a ballpark cost estimate. Runs on ECS Fargate + PostgreSQL in a VPC, calls Bedrock, talks to Draw.io and AWS Pricing over MCP, deployed with Terraform. The premise was pretty relatable — a customer wanting a design "right now" while an SA still needs time to actually think it through.
 
-### My Role
+### My role
 
-I attended as a listener, following all four teams as they walked through their 24-hour hackathon journey, their technical architecture, and the real difficulties of building a production-shaped AI agent under a tight deadline.
+Just listening — following all four teams through their 24 hours, the architecture, and what actually went wrong along the way.
 
-### Takeaways / Personal Reflection
+### What I got out of it
 
-- A clear common pattern emerged across very different problems (surveillance, ordering, corporate intelligence, architecture generation): **Amazon Bedrock AgentCore (Runtime + Gateway + Memory)** acts as the backbone of almost every agentic architecture shown.
-- Splitting responsibilities across multiple sub-agents (Signal Scout's Crawler/Analysis split, S.H.E.P.H.E.R.D's detection/operation split) is a cleaner pattern than cramming all logic into a single agent — something I want to keep in mind if I extend my own SageMaker pipeline with agentic components later.
-- The cost breakdown from Signal Scout was a direct, practical reminder to track spend closely — directly relevant to my own SageMaker workshop track and its $200 credit budget.
-- The "learning from failure" tone in the 3KA retrospective was a useful reminder that a personal project doesn't need to be perfect on day one — shipping a working MVP and iterating matters more.
+The same core piece — Bedrock AgentCore — showed up in basically every architecture, even though the problems were completely different. Splitting work across sub-agents instead of stuffing everything into one agent seems like the right instinct, and it's something I'd consider if I ever add agentic pieces to my own SageMaker pipeline. The Signal Scout cost breakdown was a good nudge to keep an eye on my own $200 budget. And the "we were scared and it was messy" tone from 3KA was honestly reassuring — a personal project doesn't need to be perfect on day one, it just needs to work.
 
 ### Event Photos
 

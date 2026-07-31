@@ -7,21 +7,21 @@ pre: " <b> 1.12. </b> "
 ---
 
 {{% notice note %}}
-This is a planned week. Content will be updated with actual results once the work below is completed.
+Haven't gotten here yet — will update this with what actually happened once it's done.
 {{% /notice %}}
 
-### Week 12 Objectives:
+### What I want to get done this week
 
-* Wrap up the project with a polished demo, presentation, and clean AWS environment.
+* Close everything out properly.
 
-### Planned Tasks:
+### Plan
 
-* Record the final demo video (login → browse → recommendation → feedback loop).
-* Prepare and rehearse the final presentation slides.
-* Review the AWS Billing Dashboard to confirm total spend stayed within the credit budget.
-* Delete or stop unused AWS resources (endpoints, buckets no longer needed) to avoid extra charges.
+* Record the final demo video.
+* Prep and practice the presentation slides.
+* Check the Billing Dashboard, make sure I'm within budget.
+* Tear down whatever's not needed anymore so it doesn't keep costing money.
 
-### Expected Outcomes:
+### What I'm hoping for
 
-* Final report, demo video, and slides ready for submission.
-* All non-essential AWS resources cleaned up.
+* Report, video, and slides all ready to submit.
+* Nothing left running on AWS that shouldn't be.

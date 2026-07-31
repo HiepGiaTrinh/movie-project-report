@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Week 3 Objectives:
+### What I wanted to get done this week
 
-* Set up SageMaker Studio as the main workspace for the ML pipeline.
-* Build a repeatable data-preprocessing step using SageMaker Processing Jobs.
+* Get SageMaker Studio set up as my main workspace.
+* Build a preprocessing step I can rerun instead of doing it by hand each time.
 
-### Tasks:
+### What I did
 
-* Completed **"Amazon SageMaker Studio for Data Scientists"** on AWS Skill Builder.
-* Set up a SageMaker Studio domain and user profile in **ap-southeast-2**.
-* Built a **SageMaker Processing Job** to clean the MovieLens data and construct the user-item sparse matrix.
-* Implemented a **time-based train/test split** (instead of a random split) to reflect the sequential nature of a recommender system.
-* Stored the processed train/test artifacts back to the `processed/` prefix on S3.
+* Took "Amazon SageMaker Studio for Data Scientists" on Skill Builder.
+* Set up a SageMaker Studio domain and profile in ap-southeast-2.
+* Built a SageMaker Processing job to clean the MovieLens data and build the user-item matrix.
+* Split train/test by time instead of randomly — makes more sense for a recommender.
+* Wrote the processed data back to S3 under `processed/`.
 
-### Week 3 Achievements:
+### How it went
 
-* First SageMaker Processing Job running successfully end-to-end.
-* A reproducible preprocessing pipeline that outputs a ready-to-train dataset on S3.
-* Solid understanding of why chronological splitting matters for recommendation systems.
+* First Processing job ran end-to-end without me babysitting it.
+* Got a pipeline I can rerun any time and get a training-ready dataset out.
+* Understand now why chronological splitting actually matters here.

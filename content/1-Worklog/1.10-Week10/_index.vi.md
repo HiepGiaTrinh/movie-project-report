@@ -7,20 +7,20 @@ pre: " <b> 1.10. </b> "
 ---
 
 {{% notice note %}}
-Đây là tuần kế hoạch. Nội dung sẽ được cập nhật thành kết quả thực tế sau khi hoàn thành các công việc bên dưới.
+Chưa tới tuần này lúc viết — sẽ cập nhật lại thành thực tế sau khi làm xong.
 {{% /notice %}}
 
-### Mục tiêu tuần 10:
+### Mục tiêu tuần 10
 
-* Xác nhận toàn bộ hệ thống — ML, backend, frontend — hoạt động ổn định cùng nhau.
+* Đảm bảo cả hệ thống — ML, backend, frontend — chạy chung được với nhau, chứ không chỉ riêng lẻ.
 
-### Công việc dự kiến:
+### Kế hoạch
 
-* Chạy kiểm thử hồi quy (regression test) toàn bộ pipeline gợi ý cùng với các thành viên Frontend, Backend, DevOps.
-* Kiểm thử feedback loop end-to-end: gửi rating mới → pipeline retraining được kích hoạt → mô hình mới được triển khai.
-* Sửa các lỗi còn tồn đọng phát hiện trong quá trình kiểm thử tích hợp.
+* Test hồi quy toàn bộ cùng mấy bạn Frontend/Backend/DevOps.
+* Test feedback loop thật: gửi rating mới, xem retraining có chạy không, model mới có lên không.
+* Sửa cái gì hỏng thì sửa.
 
-### Kết quả dự kiến:
+### Kỳ vọng
 
-* Hệ thống ổn định, tích hợp đầy đủ, sẵn sàng để demo.
-* Xác nhận được feedback loop thực sự cải thiện chất lượng gợi ý theo thời gian.
+* Hệ thống chạy ổn khi mọi thứ hoạt động cùng lúc.
+* Chứng minh được feedback loop thực sự làm gợi ý tốt hơn, chứ không chỉ là chạy được.

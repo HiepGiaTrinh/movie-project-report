@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-### Mục tiêu tuần 2:
+### Mục tiêu tuần 2
 
-* Xây dựng nền tảng vững chắc để làm việc với dữ liệu trên AWS.
-* Chuẩn bị lớp lưu trữ S3 và bộ dữ liệu dùng để huấn luyện mô hình gợi ý.
+* Làm quen với việc xử lý data trên AWS.
+* Set up chỗ lưu trữ và lấy dataset thật vào để chuẩn bị train.
 
-### Công việc đã làm:
+### Đã làm gì
 
-* Hoàn thành khoá **"AWS Technical Essentials"** và **"Introduction to AWS Identity and Access Management (IAM)"** trên AWS Skill Builder.
-* Thiết kế và tạo S3 bucket với các prefix `raw/`, `processed/`, `models/`, `logs/` cho dự án.
-* Viết IAM policy theo nguyên tắc least-privilege và tạo IAM role riêng cho tác vụ xử lý dữ liệu.
-* Tải bộ dữ liệu **MovieLens 100K** và upload lên prefix `raw/` trên S3.
-* Khám phá dữ liệu cục bộ bằng pandas (`ratings.csv`, `movies.csv`): phân bố rating, số lượng user/item, độ thưa (sparsity) của ma trận user-item.
+* Học "AWS Technical Essentials" và "Introduction to IAM" trên Skill Builder.
+* Tạo S3 bucket có mấy folder `raw/`, `processed/`, `models/`, `logs/`.
+* Viết IAM policy và role riêng cho việc xử lý data, theo kiểu least-privilege.
+* Tải MovieLens 100K, up lên `raw/`.
+* Ngồi khám phá data bằng pandas — xem phân bố rating, bao nhiêu user/item, ma trận thưa cỡ nào.
 
-### Kết quả đạt được tuần 2:
+### Kết quả
 
-* S3 bucket đã có cấu trúc rõ ràng và chứa dữ liệu MovieLens thô.
-* IAM role hoạt động tốt, tuân thủ nguyên tắc least-privilege cho việc truy cập dữ liệu.
-* Hiểu rõ đặc điểm và chất lượng dữ liệu, làm cơ sở để thiết kế bước tiền xử lý ở tuần sau.
+* Bucket đã có cấu trúc rõ ràng và có sẵn data MovieLens thô.
+* IAM role chạy tốt, không bị dư quyền.
+* Hiểu được data đang ở dạng nào, giúp hình dung bước tiền xử lý ở tuần sau.

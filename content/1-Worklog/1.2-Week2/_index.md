@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-### Week 2 Objectives:
+### What I wanted to get done this week
 
-* Build a solid foundation for working with data on AWS.
-* Prepare the S3 storage layer and the dataset the recommendation model will be trained on.
+* Get comfortable working with data on AWS.
+* Set up storage and pull in the dataset I'll actually be training on.
 
-### Tasks:
+### What I did
 
-* Completed **"AWS Technical Essentials"** and **"Introduction to AWS Identity and Access Management (IAM)"** on AWS Skill Builder.
-* Designed and created an S3 bucket with `raw/`, `processed/`, `models/`, and `logs/` prefixes for the project.
-* Wrote a least-privilege IAM policy and a dedicated IAM role for data-processing tasks.
-* Downloaded the **MovieLens 100K** dataset and uploaded it to the `raw/` prefix on S3.
-* Explored the dataset locally with pandas (`ratings.csv`, `movies.csv`): rating distribution, number of users/items, sparsity of the user-item matrix.
+* Took "AWS Technical Essentials" and "Introduction to IAM" on Skill Builder.
+* Set up an S3 bucket with `raw/`, `processed/`, `models/`, `logs/` folders.
+* Wrote a least-privilege IAM policy and role just for the data-processing work.
+* Downloaded MovieLens 100K, uploaded it to `raw/`.
+* Poked around the data locally with pandas — rating distribution, how many users/items, how sparse the matrix is.
 
-### Week 2 Achievements:
+### How it went
 
-* S3 bucket structured and populated with the raw MovieLens dataset.
-* A working, least-privilege IAM role for data access.
-* Clear understanding of the dataset's shape and quality, which guided the preprocessing design for the following week.
+* Bucket's set up and has the raw MovieLens data in it.
+* IAM role works and isn't over-permissioned.
+* Got a feel for the data, which helped me figure out how to preprocess it next.

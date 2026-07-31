@@ -6,30 +6,21 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Event Report: "Cloud Architect" — AWS Knowledge Gameshow
+# "Cloud Architect" — a Cloud knowledge gameshow
 
-### Event Purpose
+FCAJ ran this as a change of pace from the usual workshops — a head-to-head quiz instead of a lecture, but still built around real Cloud and architecture questions.
 
-FCAJ organized "Cloud Architect" to bring a fresh format to knowledge sharing — a head-to-head gameshow instead of a lecture — while still reinforcing Cloud and architecture-design fundamentals among interns.
+### How it worked
 
-### Format
+Two teams faced off at a time, answering questions that got harder as the round went on. Whoever scored more moved on; if it was tied at the end, a tiebreaker question decided it by speed. 8 teams signed up, 5 people each, mixed across different internship groups (though nobody could be on two teams). There were also two "skills" you could use once each: "Minimum Risk," for when you weren't sure — no penalty if wrong, half points if right — and "Star of Hope," for when you were confident — double points if right, double penalty if wrong. Signups went through a Google Form, and since spots were limited, teams got picked randomly; once picked, showing up was mandatory.
 
-- Two teams competed at a time, answering a set of questions that increased in difficulty. The team with the higher score advanced to the next round; a tiebreaker ("question 11") decided the winner by speed if scores were level at the end.
-- **8 teams** took part, **5 members each**, mixed freely across different internship groups (one person could only join one team).
-- Two special "skills" added a risk/reward layer to the game:
-  - **Minimum Risk** (1 use): for an uncertain answer — no penalty if wrong, only half points if right.
-  - **Star of Hope** (1 use): for a confident answer — double points if right, double penalty if wrong.
-- Registration ran through a Google Form; because the number of slots was limited, teams were selected randomly, and once selected, full participation was mandatory.
+### My role
 
-### My Role
+I was in the audience, and at some point got pulled in to help answer a couple of questions for the teams while watching the matches.
 
-I attended as a spectator and was also invited to help answer a few questions in support of the competing teams while following the matches.
+### What I took away from it
 
-### Experience & Takeaways
-
-- Reviewing Cloud and architecture-design concepts through a competitive format made the material stick better than passive listening would have.
-- The "risk vs. reward" mechanic (the two special skills) was a well-designed way to keep matches tense until the end — a format idea worth borrowing for future team-building activities.
-- Watching teams decide, under time pressure, when to play "Minimum Risk" versus "Star of Hope" was itself a useful lesson in group decision-making under uncertainty.
+Reviewing Cloud concepts through a competition turned out to stick a lot better than just sitting through a lecture. The risk/reward mechanic with the two skills was a genuinely good format choice — kept matches interesting right up to the last question. Watching teams decide when to gamble versus play it safe under time pressure was its own small lesson in group decision-making.
 
 ### Event Photos
 

@@ -6,20 +6,20 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Week 5 Objectives:
+### What I wanted to get done this week
 
-* Quantitatively evaluate the recommendation model.
-* Track model versions with the SageMaker Model Registry.
+* Actually measure how good the model is, not just eyeball it.
+* Start tracking model versions properly.
 
-### Tasks:
+### What I did
 
-* Implemented evaluation metrics for the recommender: **Precision@10**, **Recall@10**, and **NDCG@10** on the held-out test set.
-* Added a simple **"Top Trending"** fallback to handle the cold-start problem for new users with no rating history.
-* Registered the trained model version in the **SageMaker Model Registry** to track lineage and approval status.
-* Documented a model card: dataset version, hyperparameters, and evaluation results.
+* Set up Precision@10, Recall@10, and NDCG@10 on the held-out test set.
+* Added a "Top Trending" fallback for new users who don't have any ratings yet.
+* Registered the model in SageMaker Model Registry.
+* Wrote up a short model card — dataset version, hyperparameters, results.
 
-### Week 5 Achievements:
+### How it went
 
-* Quantitative evaluation confirming the model outperforms a trending-only baseline.
-* A working cold-start fallback strategy, tested with simulated new users.
-* First model version approved and tracked in the SageMaker Model Registry.
+* Numbers show the model actually beats a plain trending baseline, which was a relief.
+* Cold-start case is handled now, at least in a basic way.
+* First model version is registered and tracked properly instead of just sitting on S3 with no context.

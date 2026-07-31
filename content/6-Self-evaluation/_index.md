@@ -6,13 +6,9 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-During my internship at **Amazon Web Services Vietnam Company Limited** (First Cloud AI Journey program), from **15/06/2026** to **14/08/2026**, I had the opportunity to learn, practice, and apply the knowledge I had gained at university to a real-world cloud environment.
+I've been interning at AWS Vietnam through the First Cloud AI Journey program since June 15, 2026 (through August 14). Most of my time went into the ML side of the team's "Netflix-Style Movie Recommendation System" — building out the SageMaker pipeline, from data processing to training, evaluation, deployment, and the feedback loop. It's given me a lot of hands-on practice with services I'd only read about before (SageMaker, S3, IAM, CloudWatch), on top of just getting used to working as part of a real team instead of a solo school project.
 
-I worked as the **Machine Learning Engineer** on the team's "Netflix-Style Movie Recommendation System" project, focusing on the SageMaker-based recommendation pipeline: data processing, model training and evaluation, serverless deployment, and the feedback/retraining loop. Through this work, I improved my skills in applied machine learning, hands-on AWS service usage (SageMaker, S3, IAM, CloudWatch), and technical documentation.
-
-In terms of work ethic, I always strived to complete tasks well, complied with program regulations, and actively communicated with my teammates to keep the project moving forward.
-
-To objectively reflect on my internship, I would like to evaluate myself based on the following criteria:
+I tried to stay on top of deadlines, follow the program's rules, and keep the team in the loop on what I was doing. Here's how I'd rate myself:
 
 | No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
@@ -29,8 +25,8 @@ To objectively reflect on my internship, I would like to evaluate myself based o
 | 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
 | 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
 
-### Needs Improvement
+### Things I want to work on
 
-* Improve how I explain technical decisions (e.g., service choices, architecture trade-offs) so they are clear to non-technical reviewers.
-* Continue practicing structured problem-solving when debugging integration issues between the ML endpoint and the rest of the system.
-* Get faster at translating mentor feedback (especially on architecture diagrams) into corrected work on the first try.
+* Explaining technical decisions in a way that doesn't assume everyone already knows the AWS jargon.
+* Being more systematic when debugging — right now I tend to just poke at things until they work.
+* Reacting faster on feedback, especially about architecture diagrams — I've been slow to actually apply corrections the first time around.

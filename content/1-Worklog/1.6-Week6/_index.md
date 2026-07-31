@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Week 6 Objectives:
+### What I wanted to get done this week
 
-* Deploy the recommendation model as a live inference endpoint.
-* Connect the ML endpoint to the team's shared backend.
+* Get the model actually serving requests, not just sitting there.
+* Connect it to the rest of the app.
 
-### Tasks:
+### What I did
 
-* Studied SageMaker inference options on AWS Skill Builder, focusing on **Serverless Inference**.
-* Deployed the approved model to a **SageMaker Serverless Inference** endpoint in ap-southeast-2.
-* Tested the endpoint directly via the AWS CLI and boto3 (`invoke_endpoint`) with sample user IDs.
-* Coordinated with the Backend teammate to connect the endpoint to the shared Lambda / API Gateway layer.
-* Measured and recorded endpoint cold-start time and average inference latency.
+* Read up on SageMaker inference options, focused on Serverless Inference.
+* Deployed the model to a Serverless Inference endpoint in ap-southeast-2.
+* Tested it with the CLI and boto3 using some sample user IDs.
+* Talked with the Backend person about wiring the endpoint into the Lambda/API Gateway layer.
+* Timed the cold start and average latency.
 
-### Week 6 Achievements:
+### How it went
 
-* Recommendation model exposed as a working Serverless Inference endpoint.
-* Verified request/response flow between the API layer and the SageMaker endpoint.
-* Latency baseline recorded to guide later optimization.
+* Endpoint is up and actually returning recommendations.
+* Confirmed the request/response flow works between the API and the endpoint.
+* Have baseline latency numbers to compare against later.

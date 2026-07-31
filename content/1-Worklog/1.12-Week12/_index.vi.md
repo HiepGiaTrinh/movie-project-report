@@ -7,21 +7,21 @@ pre: " <b> 1.12. </b> "
 ---
 
 {{% notice note %}}
-Đây là tuần kế hoạch. Nội dung sẽ được cập nhật thành kết quả thực tế sau khi hoàn thành các công việc bên dưới.
+Chưa tới tuần này lúc viết — sẽ cập nhật lại thành thực tế sau khi làm xong.
 {{% /notice %}}
 
-### Mục tiêu tuần 12:
+### Mục tiêu tuần 12
 
-* Hoàn thiện dự án với bản demo, thuyết trình chỉn chu và môi trường AWS sạch.
+* Chốt hết mọi thứ cho gọn gàng.
 
-### Công việc dự kiến:
+### Kế hoạch
 
-* Quay video demo cuối cùng (đăng nhập → xem phim → nhận gợi ý → feedback loop).
-* Chuẩn bị và tập dượt slide thuyết trình cuối kỳ.
-* Kiểm tra AWS Billing Dashboard để xác nhận tổng chi phí nằm trong ngân sách credit.
-* Xoá hoặc dừng các tài nguyên AWS không còn dùng (endpoint, bucket không cần thiết) để tránh phát sinh chi phí.
+* Quay video demo cuối cùng.
+* Chuẩn bị và tập slide thuyết trình.
+* Check Billing Dashboard, đảm bảo còn trong ngân sách.
+* Dọn hết những gì không cần dùng nữa để khỏi tốn thêm tiền.
 
-### Kết quả dự kiến:
+### Kỳ vọng
 
-* Báo cáo cuối cùng, video demo và slide sẵn sàng để nộp.
-* Toàn bộ tài nguyên AWS không cần thiết đã được dọn dẹp.
+* Báo cáo, video, slide sẵn sàng để nộp.
+* Không còn gì chạy dư thừa trên AWS.

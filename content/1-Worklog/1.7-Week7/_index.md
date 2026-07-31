@@ -7,22 +7,22 @@ pre: " <b> 1.7. </b> "
 ---
 
 {{% notice note %}}
-This week is still in progress at the time of writing — the achievements below reflect the work completed so far.
+Still working through this week as I write this — the notes below are what's done so far.
 {{% /notice %}}
 
-### Week 7 Objectives:
+### What I wanted to get done this week
 
-* Integrate the SageMaker endpoint with the team's application end-to-end.
-* Design the feedback loop and retraining pipeline.
+* Get the endpoint hooked into the full app and test it end-to-end.
+* Start figuring out the feedback loop.
 
-### Tasks:
+### What I did
 
-* Integrated the SageMaker endpoint with the team's EC2-hosted application and ran a full end-to-end test: user login → browse movies → receive recommendations.
-* Reviewed logs and fixed integration issues between the backend and the ML endpoint (payload format, error handling).
-* Started designing the feedback loop: capturing new user ratings in DynamoDB and exporting them to S3 for retraining.
-* Drafted the retraining architecture: DynamoDB Stream → Lambda → S3 → SageMaker Pipeline.
+* Connected the SageMaker endpoint to the team's EC2 app and ran a full test: log in, browse, get recommendations.
+* Chased down a few integration bugs between the backend and the endpoint (payload format, error handling — the usual).
+* Started sketching out the feedback loop: new ratings go into DynamoDB, get exported to S3 for retraining.
+* Drafted the retraining flow on paper: DynamoDB Stream → Lambda → S3 → SageMaker Pipeline.
 
-### Week 7 Achievements (in progress):
+### How it's going so far
 
-* Successful end-to-end demo of the recommendation flow together with the rest of the team's system.
-* Clear design for the feedback loop and retraining pipeline, ready to implement next week.
+* Got a working end-to-end demo with the rest of the system.
+* Have a rough design for the feedback loop, ready to actually build next week.

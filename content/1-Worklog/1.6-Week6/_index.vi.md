@@ -6,21 +6,21 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Mục tiêu tuần 6:
+### Mục tiêu tuần 6
 
-* Triển khai mô hình gợi ý thành một endpoint inference thực tế.
-* Kết nối endpoint ML với phần backend chung của nhóm.
+* Đưa model ra thành endpoint thật sự phục vụ request, chứ không chỉ nằm im.
+* Nối nó với phần còn lại của app.
 
-### Công việc đã làm:
+### Đã làm gì
 
-* Tìm hiểu các phương án inference của SageMaker trên AWS Skill Builder, tập trung vào **Serverless Inference**.
-* Triển khai mô hình đã phê duyệt lên endpoint **SageMaker Serverless Inference** tại ap-southeast-2.
-* Kiểm thử endpoint trực tiếp bằng AWS CLI và boto3 (`invoke_endpoint`) với các user ID mẫu.
-* Phối hợp với thành viên phụ trách Backend để kết nối endpoint với lớp Lambda / API Gateway chung.
-* Đo và ghi lại thời gian cold-start và độ trễ inference trung bình của endpoint.
+* Đọc về các kiểu inference của SageMaker, tập trung vào Serverless Inference.
+* Deploy model lên endpoint Serverless Inference ở ap-southeast-2.
+* Test bằng CLI và boto3 với vài user ID mẫu.
+* Trao đổi với bạn làm Backend để nối endpoint vào lớp Lambda/API Gateway.
+* Đo thời gian cold start và độ trễ trung bình.
 
-### Kết quả đạt được tuần 6:
+### Kết quả
 
-* Mô hình gợi ý đã được đưa ra thành endpoint Serverless Inference hoạt động thực tế.
-* Xác minh được luồng request/response giữa lớp API và endpoint SageMaker.
-* Có số liệu độ trễ nền (baseline) để tối ưu ở các bước sau.
+* Endpoint chạy và trả kết quả gợi ý thật.
+* Xác nhận luồng request/response giữa API và endpoint hoạt động đúng.
+* Có số liệu độ trễ để so sánh về sau.

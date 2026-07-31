@@ -6,20 +6,20 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Mục tiêu tuần 5:
+### Mục tiêu tuần 5
 
-* Đánh giá mô hình gợi ý một cách định lượng.
-* Theo dõi phiên bản mô hình bằng SageMaker Model Registry.
+* Đo được model tốt cỡ nào bằng số liệu, chứ không chỉ nhìn qua loa.
+* Bắt đầu quản lý version model đàng hoàng.
 
-### Công việc đã làm:
+### Đã làm gì
 
-* Triển khai các chỉ số đánh giá cho mô hình gợi ý: **Precision@10**, **Recall@10** và **NDCG@10** trên tập test.
-* Thêm cơ chế fallback **"Top Trending"** đơn giản để xử lý bài toán cold-start cho user mới chưa có lịch sử rating.
-* Đăng ký phiên bản mô hình đã huấn luyện vào **SageMaker Model Registry** để theo dõi lineage và trạng thái phê duyệt.
-* Ghi lại model card: phiên bản dataset, hyperparameter và kết quả đánh giá.
+* Tính Precision@10, Recall@10, NDCG@10 trên tập test.
+* Thêm fallback "Top Trending" cho user mới chưa có rating nào.
+* Đăng ký model vào SageMaker Model Registry.
+* Ghi lại model card ngắn gọn — version dataset, hyperparameter, kết quả.
 
-### Kết quả đạt được tuần 5:
+### Kết quả
 
-* Kết quả đánh giá định lượng cho thấy mô hình vượt trội hơn baseline chỉ dựa trên trending.
-* Chiến lược fallback cold-start hoạt động tốt, đã kiểm thử với user mới giả lập.
-* Phiên bản mô hình đầu tiên được phê duyệt và theo dõi trong SageMaker Model Registry.
+* Số liệu cho thấy model thật sự tốt hơn baseline chỉ dựa trending, cũng đỡ lo.
+* Xử lý được case cold-start, ít nhất là ở mức cơ bản.
+* Model version đầu tiên được đăng ký và theo dõi đàng hoàng, không còn nằm trơ trên S3 không ai biết là bản nào.

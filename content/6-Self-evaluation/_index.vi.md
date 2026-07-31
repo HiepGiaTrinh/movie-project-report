@@ -6,13 +6,9 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-Trong suốt thời gian thực tập tại **Công ty TNHH Amazon Web Services Việt Nam** (chương trình First Cloud AI Journey), từ **15/06/2026** đến **14/08/2026**, mình đã có cơ hội học hỏi, rèn luyện và áp dụng những kiến thức đã học ở trường vào một môi trường cloud thực tế.
+Mình thực tập ở AWS Việt Nam qua chương trình First Cloud AI Journey từ 15/06 đến 14/08/2026. Phần lớn thời gian mình dồn vào mảng ML của project chung "Netflix-Style Movie Recommendation System" — làm pipeline SageMaker, từ xử lý dữ liệu, train, đánh giá, deploy cho tới feedback loop. Đợt này cho mình cơ hội thực hành với mấy dịch vụ trước giờ chỉ đọc qua (SageMaker, S3, IAM, CloudWatch), với cả quen dần với việc làm trong một team thật chứ không phải làm đồ án một mình như hồi ở trường.
 
-Mình đảm nhận vai trò **Machine Learning Engineer** trong dự án chung của nhóm "Netflix-Style Movie Recommendation System", tập trung vào pipeline gợi ý dựa trên SageMaker: xử lý dữ liệu, huấn luyện và đánh giá mô hình, triển khai serverless, và vòng lặp feedback/retraining. Qua đó, mình cải thiện được kỹ năng ứng dụng machine learning, sử dụng thực tế các dịch vụ AWS (SageMaker, S3, IAM, CloudWatch) và kỹ năng viết tài liệu kỹ thuật.
-
-Về tác phong, mình luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ quy định của chương trình và chủ động trao đổi với các thành viên trong nhóm để dự án tiến triển thuận lợi.
-
-Để phản ánh khách quan quá trình thực tập, mình xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+Mình cố gắng theo sát deadline, tuân thủ quy định chương trình, và cập nhật cho nhóm biết mình đang làm gì. Dưới đây là mình tự chấm:
 
 | STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
@@ -29,8 +25,8 @@ Về tác phong, mình luôn cố gắng hoàn thành tốt nhiệm vụ, tuân 
 | 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
 | 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
 
-### Cần cải thiện
+### Cái mình muốn cải thiện
 
-* Cải thiện cách giải thích các quyết định kỹ thuật (chọn dịch vụ, đánh đổi kiến trúc) để người không chuyên cũng dễ hiểu.
-* Tiếp tục rèn tư duy giải quyết vấn đề có hệ thống hơn khi debug các lỗi tích hợp giữa endpoint ML và phần còn lại của hệ thống.
-* Rút ngắn thời gian chuyển từ feedback của mentor (đặc biệt về sơ đồ kiến trúc) thành bản sửa đúng ngay từ lần đầu.
+* Giải thích quyết định kỹ thuật sao cho người không rành AWS cũng hiểu, chứ không mặc định ai cũng biết mấy thuật ngữ đó.
+* Debug có hệ thống hơn — hiện tại mình hay kiểu thử cái này cái kia tới khi nó chạy thì thôi.
+* Phản hồi nhanh hơn với feedback, nhất là về sơ đồ kiến trúc — mình hay chậm trong việc sửa đúng ngay từ lần đầu.

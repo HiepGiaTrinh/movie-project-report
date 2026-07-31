@@ -7,20 +7,20 @@ pre: " <b> 1.11. </b> "
 ---
 
 {{% notice note %}}
-This is a planned week. Content will be updated with actual results once the work below is completed.
+Haven't gotten here yet — will update this with what actually happened once it's done.
 {{% /notice %}}
 
-### Week 11 Objectives:
+### What I want to get done this week
 
-* Turn the completed technical work into clear, bilingual documentation.
+* Turn all the work into something people can actually read.
 
-### Planned Tasks:
+### Plan
 
-* Write the bilingual **Workshop** section of this report (Overview, Prerequisites, step-by-step SageMaker guide, testing, clean-up).
-* Prepare architecture diagrams for the ML/SageMaker component following AWS diagramming conventions.
-* Draft blog post content related to the SageMaker work for the AWS Study Group.
+* Write the bilingual Workshop section for this report.
+* Draw up proper architecture diagrams for the ML part.
+* Draft blog content about the SageMaker work for the study group.
 
-### Expected Outcomes:
+### What I'm hoping for
 
-* Complete, reviewable workshop documentation for the ML component.
-* Diagrams and content ready to support the final presentation.
+* Documentation someone else could actually follow.
+* Diagrams ready for the final presentation.

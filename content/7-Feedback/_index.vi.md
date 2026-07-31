@@ -6,38 +6,30 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-> Tại đây mình xin tự do chia sẻ ý kiến cá nhân về trải nghiệm khi tham gia chương trình First Cloud AI Journey, nhằm giúp team FCAJ cải thiện dựa trên các hạng mục sau:
+Vài suy nghĩ thật lòng về thời gian mình tham gia First Cloud AI Journey tới giờ.
 
-### Đánh giá chung
+### Nhận xét chung
 
-**1. Môi trường làm việc**
-Môi trường làm việc tại văn phòng AWS Bitexco chuyên nghiệp nhưng vẫn gần gũi. Các thành viên FCAJ luôn sẵn lòng hỗ trợ khi mình gặp khó khăn về kỹ thuật, và không gian văn phòng giúp tập trung tốt vào những ngày lên office.
+**Môi trường làm việc.** Văn phòng Bitexco làm việc khá ổn — chuyên nghiệp nhưng không gò bó. Có người xung quanh để hỏi khi bí.
 
-**2. Sự hỗ trợ của mentor / team admin**
-Mình đặc biệt đánh giá cao các buổi review sơ đồ kiến trúc trực tiếp mà đội mentor tổ chức trên nhóm FCAJ — nhiều mentor cùng review hàng chục diagram chỉ trong một buổi tối, đưa ra góp ý cụ thể và trực tiếp (quy ước icon, thiếu sót về network/HA, lựa chọn dịch vụ). Cảm giác này giống một buổi review thật với khách hàng hơn là lời khuyên chung chung, thúc đẩy mình phải tìm hiểu kỹ dịch vụ thay vì đoán mò.
+**Sự hỗ trợ từ đội ngũ FCAJ.** Thật ra cái mình học được nhiều nhất là mấy buổi review kiến trúc trực tiếp trên group chat FCAJ — ban tổ chức lướt qua hàng chục diagram trong một buổi tối, chỉ ra từng cái cụ thể (icon sai chuẩn, thiếu HA, chọn service kỳ kỳ). Cảm giác giống review với khách hàng thật hơn là học trên lớp, nên mình phải chịu khó tìm hiểu chứ không đoán bừa.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**
-Công việc tập trung vào SageMaker khá phù hợp với nền tảng Khoa học Máy tính của mình, đồng thời cho mình trải nghiệm thực tế về hạ tầng machine learning ứng dụng — điều mà chương trình học ở trường chưa đi sâu.
+**Liên quan tới ngành học.** Phần SageMaker khá hợp với nền Khoa học Máy tính của mình, cho mình trải nghiệm thực tế về hạ tầng ML mà trường không dạy tới.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**
-Ngoài các dịch vụ AWS, mình còn học được các thói quen MLOps thực tế (quản lý version mô hình, đánh giá bằng chỉ số phù hợp, thiết kế xử lý cold-start) và cải thiện cách trình bày kiến trúc kỹ thuật cho người không chuyên.
+**Học hỏi & phát triển.** Ngoài mấy dịch vụ AWS ra, mình học được vài thói quen MLOps — version model đàng hoàng, đánh giá bằng số liệu thay vì nhìn qua loa, tính trước bài toán cold-start. Cũng khá hơn trong việc giải thích kiến trúc cho người không rành kỹ thuật.
 
-**5. Văn hóa & tinh thần đồng đội**
-Làm việc cùng các thành viên, mỗi người phụ trách một phần khác nhau của cùng một hệ thống (ML, backend, frontend, DevOps), khiến việc phối hợp trở nên thực tế hơn là mang tính học thuật — vấn đề ở một phần của pipeline thực sự ảnh hưởng đến các phần khác, đây cũng là một bài học có giá trị.
+**Văn hoá nhóm.** Làm chung với mấy bạn mỗi người phụ trách một mảng khác nhau của cùng hệ thống khiến mọi thứ thực tế hơn hẳn so với đồ án ở trường — phần mình mà hỏng là ảnh hưởng luôn tới việc của người khác.
 
-**6. Chính sách của chương trình**
-Sự linh hoạt trong việc sắp xếp thời gian lên văn phòng giúp mình cân bằng được giữa thực tập và lịch học ở trường.
+**Về mặt tổ chức.** Được linh động chuyện lên văn phòng hay làm từ xa giúp mình cân đối được giữa thực tập và lịch học.
 
----
+### Vài điều khác
 
-### Một số câu hỏi khác
-- **Điều hài lòng nhất:** Lần đầu tiên thấy endpoint gợi ý trả về kết quả hợp lý end-to-end, sau nhiều ngày debug bước tiền xử lý dữ liệu.
-- **Điều cần cải thiện:** Hướng dẫn rõ ràng và sớm hơn về đúng định dạng báo cáo/workshop được kỳ vọng (nhiều nhóm, kể cả nhóm mình, chỉ biết rubric chi tiết khi chương trình đã đi được một nửa).
-- **Có giới thiệu chương trình cho bạn bè không:** Có — văn hoá feedback trực tiếp từ mentor thực sự hữu ích với những ai sẵn sàng hành động theo đó.
+- **Lúc vui nhất:** lần đầu thấy endpoint gợi ý trả kết quả hợp lý end-to-end, sau mấy ngày bí ở khâu tiền xử lý dữ liệu.
+- **Cái cần cải thiện:** hướng dẫn rõ hơn về format báo cáo/workshop ngay từ đầu — nhiều đứa, kể cả mình, chỉ biết rubric chi tiết khi chương trình đã đi được nửa chừng.
+- **Có giới thiệu chương trình không:** có — văn hoá feedback trực tiếp trên group FCAJ thực sự có ích nếu chịu khó làm theo.
 
----
+### Đề xuất
 
-### Đề xuất & mong muốn
-- Công bố rubric báo cáo/workshop cùng ví dụ sơ đồ kiến trúc ngay từ đầu chương trình, thay vì ở giữa chừng.
-- Cân nhắc một buổi ngắn riêng về quy ước vẽ sơ đồ kiến trúc AWS ngay từ đầu, vì đây là điểm feedback lặp lại ở hầu hết các nhóm.
-- Mình mong muốn được tiếp tục phát triển dự án này hoặc một dự án tương tự trong tương lai.
+- Đưa rubric báo cáo với ví dụ sơ đồ ngay từ đầu, đừng để giữa chừng mới biết.
+- Một buổi ngắn về quy ước vẽ sơ đồ AWS ngay từ đầu chắc sẽ đỡ cho nhiều người khỏi bị nhắc đi nhắc lại cùng một lỗi.
+- Mình muốn được làm tiếp project này hoặc cái gì tương tự sau này.
