@@ -6,121 +6,33 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Event Report: FCAJ x Agentic AI Build Week Hackathon — Sharing Session
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### Event Background
 
-### Event Objectives
+Agentic AI Build Week (AABW) was billed as the largest Agentic AI buildathon in ASEAN, held July 8–12, 2026 in Ho Chi Minh City. Several FCAJ interns competed there, and the FCAJ community organized a follow-up sharing session where those teams presented their projects and what they learned from the 24-hour build.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+### What Was Shared — Four Projects
 
-### Speakers
+**1. S.H.E.P.H.E.R.D (Team 3KA)** — a real-time crowd-monitoring and hazard-detection system built from live camera footage. It uses YOLO + ByteTrack to detect and track people, a SageMaker endpoint for inference, and an Amazon Bedrock AgentCore + Strands "Operation Agent" to turn detections into alerts and recommended actions for venue staff. On AWS, the pipeline runs through Kinesis Video Stream, an ECS-hosted stream processor, DynamoDB and S3 for incident evidence, and a dispatcher-facing path through CloudFront, WAF, API Gateway, and Lambda, backed by Cognito, IAM, Secrets Manager, CloudTrail, and CloudWatch. The team's retrospective was unusually honest about the emotional side of a hackathon — self-doubt and fear of failing at the start, followed by the pride of actually shipping a working end-to-end system.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+**2. KFC Bot Agent (Team OneTeam)** — a multi-channel conversational ordering agent (Zalo, Messenger, with WhatsApp planned) designed so customers never have to leave the chat, download an app, or create an account to order. The idea was directly inspired by a real-world failure: McDonald's ending its AI drive-thru ordering trial after issues at over 100 US locations. The architecture centers on Amazon Bedrock AgentCore (Runtime + Gateway) as the decision-making core, with Lambda handling ingestion/orchestration/worker tasks, SQS for task queuing, DynamoDB and OpenSearch for session and vector storage, and a full security/observability layer (CloudWatch, X-Ray, CloudTrail, GuardDuty, Secrets Manager, IAM). This team won the **AWS Track** at AABW.
 
-### Key Highlights
+**3. Signal Scout** — a platform that tracks public corporate-restructuring signals to support decisions by corporate-strategy, risk-management, and competitive-intelligence teams. Its most interesting design choice is splitting the agent into two separate Bedrock AgentCore sub-agents: a **Crawler Subagent** (pulling data via TinyFish and Apify) and an **Analysis Subagent** (applying Bedrock Guardrails and logging through Langfuse). The team also presented a detailed operating-cost breakdown (roughly $17–130/month on AWS alone, plus third-party costs for Apify/TinyFish/Langfuse) — a useful reminder to estimate the real running cost of an AI agent before building one.
 
-#### Identifying the drawbacks of legacy application architecture
+**4. Solution Architect Professional AI Native App (Team Plan V)** — a tool that automates repetitive Solution Architect work: parsing a customer's request in natural language, drafting a high-level architecture, auto-generating a draw.io diagram using the official AWS Architecture Icons, and producing a directional AWS cost estimate. It runs on ECS Fargate (backend + agent services) inside a dedicated VPC with PostgreSQL, calls Amazon Bedrock, integrates with Draw.io and AWS Pricing via MCP, and is deployed with Terraform. The trigger for the idea was very relatable: a customer asking for an AI system design "immediately," while a Solution Architect still needs time to extract requirements, draft an architecture, and estimate cost.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+### My Role
 
-#### Transitioning to modern application architecture – Microservices
+I attended as a listener, following all four teams as they walked through their 24-hour hackathon journey, their technical architecture, and the real difficulties of building a production-shaped AI agent under a tight deadline.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+### Takeaways / Personal Reflection
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+- A clear common pattern emerged across very different problems (surveillance, ordering, corporate intelligence, architecture generation): **Amazon Bedrock AgentCore (Runtime + Gateway + Memory)** acts as the backbone of almost every agentic architecture shown.
+- Splitting responsibilities across multiple sub-agents (Signal Scout's Crawler/Analysis split, S.H.E.P.H.E.R.D's detection/operation split) is a cleaner pattern than cramming all logic into a single agent — something I want to keep in mind if I extend my own SageMaker pipeline with agentic components later.
+- The cost breakdown from Signal Scout was a direct, practical reminder to track spend closely — directly relevant to my own SageMaker workshop track and its $200 credit budget.
+- The "learning from failure" tone in the 3KA retrospective was a useful reminder that a personal project doesn't need to be perfect on day one — shipping a working MVP and iterating matters more.
 
-#### Domain-Driven Design (DDD)
+### Event Photos
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
-
-### Key Takeaways
-
-#### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
-
-### Event Experience
-
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
-
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![FCAJ x Agentic AI Build Week Hackathon sharing session](/images/4-EventParticipated/4.2-Event2/event2.jpg)
