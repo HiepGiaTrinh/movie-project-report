@@ -90,7 +90,7 @@ Source bundle không được chứa dataset hoặc artifact lớn.
 
 <!-- IMAGE-5.4.1-01: Dry-run output, đã che bucket và role ARN. -->
 
-## Tiêu chí hoàn tất
+<!-- ## Tiêu chí hoàn tất
 
 - [ ] ML submodule checkout đúng commit đã ghim.
 - [ ] Dependency cài thành công.
@@ -99,4 +99,4 @@ Source bundle không được chứa dataset hoặc artifact lớn.
 - [ ] Dry-run không thực hiện network mutation.
 - [ ] S3 bucket, role và quota SageMaker đã được xác nhận trước khi chạy cloud job.
 
-**Nguồn đối chiếu:** `ml/requirements*.txt`, `ml/scripts/validate_data.py` và `ml/scripts/sagemaker_retrain_job.py`.
+**Nguồn đối chiếu:** `ml/requirements*.txt`, `ml/scripts/validate_data.py` và `ml/scripts/sagemaker_retrain_job.py`. -->

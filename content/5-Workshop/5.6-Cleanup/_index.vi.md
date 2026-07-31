@@ -29,16 +29,9 @@ Workshop đã trình bày:
 
 ## Thứ tự dọn tài nguyên
 
-{{< mermaid align="center" >}}
-flowchart TD
-    A[Dừng traffic, CI deploy và scheduler] --> B[Lưu logs, reports và artifacts cần giữ]
-    B --> C[Dừng endpoint, job và EC2]
-    C --> D[Xóa endpoint trước EndpointConfig và Model]
-    D --> E[Export dữ liệu trước khi xóa DynamoDB]
-    E --> F[Xóa object và version trước S3 bucket]
-    F --> G[Gỡ policy trước khi xóa IAM role]
-    G --> H[Kiểm tra Billing và resource inventory]
-{{< /mermaid >}}
+![Thứ tự phụ thuộc khi dọn tài nguyên AWS](/images/5-Workshop/5.6-Cleanup/cleanup-dependency-flow.jpg)
+
+*Dọn tài nguyên theo thứ tự phụ thuộc để bảo toàn dữ liệu cần thiết và tránh resource còn tham chiếu lẫn nhau.*
 
 Thực hiện theo thứ tự:
 

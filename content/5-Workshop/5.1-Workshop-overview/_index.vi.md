@@ -10,20 +10,7 @@ Hệ thống gồm giao diện **React/Vite**, backend **FastAPI**, năm bảng 
 
 ## Kiến trúc tổng thể
 
-{{< mermaid align="center" >}}
-flowchart LR
-    Browser[Trình duyệt] --> Frontend[React Frontend]
-    Frontend --> API[FastAPI Backend]
-    API --> DDB[(DynamoDB)]
-    API --> Cache[(RecommendationCache)]
-    API --> Endpoint[SageMaker Runtime]
-    DDB --> Exporter[Interaction Exporter]
-    Exporter --> S3[(Amazon S3)]
-    S3 --> Processing[SageMaker Processing Job]
-    Processing --> S3
-{{< /mermaid >}}
-
-<!-- IMAGE-5.1-01: Có thể thay sơ đồ Mermaid bằng sơ đồ kiến trúc đã được kiểm chứng. -->
+![Kiến trúc tổng thể](/images/5-Workshop/5.1-Workshop-overview/backend-request-flow.jpg)
 
 ## Luồng xử lý của ứng dụng
 
@@ -41,6 +28,10 @@ Luồng guest chỉ đọc `PopularMovies`, sau đó dùng `BatchGetItem` để 
 ### Luồng gợi ý cá nhân hóa
 
 Backend kiểm tra `RecommendationCache` trước. Nếu cache còn hiệu lực, kết quả được trả về mà không gọi endpoint. Khi cache miss, backend dựng request context, gọi SageMaker Runtime, kiểm tra response, lưu cache theo cơ chế best effort và bổ sung metadata phim.
+
+![Luồng request gợi ý qua cache và SageMaker endpoint](/images/5-Workshop/5.1-Workshop-overview/backend-request-flow.jpg)
+
+*Luồng request gợi ý: kiểm tra cache, gọi SageMaker khi cache miss và lấy metadata từ bảng Movies.*
 
 ## Luồng huấn luyện
 
@@ -62,7 +53,7 @@ Backend kiểm tra `RecommendationCache` trước. Nếu cache còn hiệu lực
 | Amazon EC2 | Chạy web application và có thể chạy retraining bằng systemd |
 | AWS IAM | Phân tách quyền deploy, runtime và SageMaker execution |
 
-## Ranh giới chưa hoàn chỉnh
+<!-- ## Ranh giới chưa hoàn chỉnh
 
 {{% notice warning %}}
 Repository chưa có serving handler hoặc gói triển khai để biến `RecommendationEngine` thành SageMaker endpoint. Có thể kiểm tra riêng local engine và hợp đồng gọi endpoint của backend, nhưng chưa thể dựng mới real-time endpoint chỉ bằng source hiện tại.
@@ -75,6 +66,5 @@ Training path và request path chỉ tạo thành một luồng triển khai kh�
 - Guest path không đi qua SageMaker.
 - Model chỉ trả movie reference, score và reason; metadata được lấy từ `Movies`.
 - SageMaker Processing Job không đồng nghĩa với endpoint deployment.
-- Interaction API chỉ ghi hành vi, không trực tiếp chạy recommendation.
+- Interaction API chỉ ghi hành vi, không trực tiếp chạy recommendation. -->
 
-**Nguồn đối chiếu:** `README.md`, `backend/app/container.py`, `backend/app/services/recommendation_service.py`, `backend/app/services/sagemaker_recommendation_provider.py` và ML submodule tại commit đã ghim.
