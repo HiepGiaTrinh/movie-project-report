@@ -6,42 +6,38 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+> Here, I freely share my personal opinions about my experience participating in the First Cloud AI Journey program, to help the FCAJ team improve based on the following aspects:
 
 ### Overall Evaluation
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+**1. Working Environment**
+The working environment at the AWS Bitexco office is professional yet approachable. FCAJ members are willing to help when I run into technical difficulties, and the office setup makes it easy to focus during on-site days.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**2. Support from Mentor / Team Admin**
+I particularly appreciated the live architecture-diagram review sessions the mentor team runs on the FCAJ group — many mentors reviewing dozens of diagrams in a single evening, giving direct and specific feedback (icon conventions, network/HA gaps, service choices). It felt less like generic advice and more like a real client-review experience, which pushed me to research services properly instead of guessing.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**3. Relevance of Work to Academic Major**
+The SageMaker-focused work aligned well with my Computer Science background and gave me hands-on experience with applied machine learning infrastructure that goes beyond what is covered in university coursework.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**4. Learning & Skill Development Opportunities**
+Beyond AWS services themselves, I picked up practical MLOps habits (versioning models, evaluating with proper metrics, designing for cold-start) and improved how I present technical architecture to a non-technical audience.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+**5. Culture & Team Spirit**
+Working alongside teammates who each own a different part of the same system (ML, backend, frontend, DevOps) made the collaboration feel real rather than academic — issues from one part of the pipeline genuinely affected the others, which is a useful lesson in itself.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+**6. Program Policies**
+The flexibility around when to be on-site versus remote made it manageable to balance the internship with ongoing coursework.
 
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+- **Most satisfying moment:** Seeing the recommendation endpoint return sensible results end-to-end for the first time, after several days of debugging data preprocessing.
+- **What could improve:** Clearer, earlier guidance on the exact reporting/workshop format expected (many groups, including mine, only discovered the detailed rubric partway through the program).
+- **Would I recommend this program:** Yes — the direct mentor feedback culture is genuinely useful for anyone willing to act on it.
 
 ---
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+- Publish the report/workshop rubric and example architecture diagrams at the very start of the program, not partway through.
+- Consider a short, dedicated session on AWS architecture-diagramming conventions early on, since this recurring feedback point affects nearly every team.
+- I would be interested in continuing to build on this project or a similar one in the future.

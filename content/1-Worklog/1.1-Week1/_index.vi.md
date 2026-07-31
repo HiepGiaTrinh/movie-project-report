@@ -5,55 +5,24 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Làm quen với chương trình First Cloud AI Journey (FCAJ), kết nối với các thành viên và mentor.
+* Xây dựng nền tảng vững chắc về các khái niệm AWS cốt lõi.
+* Thống nhất với nhóm về ý tưởng dự án và vai trò cá nhân.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Công việc đã làm:
 
+* Tham gia buổi orientation của FCAJ, làm quen các thành viên và mentor, đọc kỹ nội quy - quy định thực tập.
+* Hoàn thành khoá **"AWS Cloud Practitioner Essentials"** trên AWS Skill Builder — Region, Availability Zone, IAM, shared responsibility model và khái niệm billing cơ bản.
+* Tạo tài khoản AWS cá nhân tại **ap-southeast-2 (Sydney)**, bật MFA cho root account, tạo IAM user admin riêng để làm việc hằng ngày.
+* Thiết lập **AWS Budget alert** để theo dõi $200 credit, tránh phát sinh chi phí ngoài ý muốn.
+* Tham gia buổi kickoff của nhóm cho dự án **"Netflix-Style Movie Recommendation System"** — thống nhất kiến trúc tổng thể và chia việc theo vai trò (ML/SageMaker, Backend, Frontend, DevOps).
+* Xác nhận vai trò cá nhân: **Machine Learning Engineer**, phụ trách pipeline gợi ý phim dựa trên SageMaker.
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu được các nhóm dịch vụ AWS cơ bản (Compute, Storage, Networking, Database) và mô hình shared responsibility.
+* Tài khoản AWS cá nhân sẵn sàng sử dụng: đã bật MFA, tạo IAM admin user, cấu hình Budget alert tại ap-southeast-2.
+* Nhóm thống nhất được ý tưởng dự án, hướng kiến trúc và phân công vai trò cá nhân.

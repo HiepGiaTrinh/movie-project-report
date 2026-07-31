@@ -5,40 +5,39 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud AI Journey, giúp team FCAJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+> Tại đây mình xin tự do chia sẻ ý kiến cá nhân về trải nghiệm khi tham gia chương trình First Cloud AI Journey, nhằm giúp team FCAJ cải thiện dựa trên các hạng mục sau:
 
 ### Đánh giá chung
 
-**1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCAJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+**1. Môi trường làm việc**
+Môi trường làm việc tại văn phòng AWS Bitexco chuyên nghiệp nhưng vẫn gần gũi. Các thành viên FCAJ luôn sẵn lòng hỗ trợ khi mình gặp khó khăn về kỹ thuật, và không gian văn phòng giúp tập trung tốt vào những ngày lên office.
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+**2. Sự hỗ trợ của mentor / team admin**
+Mình đặc biệt đánh giá cao các buổi review sơ đồ kiến trúc trực tiếp mà đội mentor tổ chức trên nhóm FCAJ — nhiều mentor cùng review hàng chục diagram chỉ trong một buổi tối, đưa ra góp ý cụ thể và trực tiếp (quy ước icon, thiếu sót về network/HA, lựa chọn dịch vụ). Cảm giác này giống một buổi review thật với khách hàng hơn là lời khuyên chung chung, thúc đẩy mình phải tìm hiểu kỹ dịch vụ thay vì đoán mò.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+**3. Sự phù hợp giữa công việc và chuyên ngành học**
+Công việc tập trung vào SageMaker khá phù hợp với nền tảng Khoa học Máy tính của mình, đồng thời cho mình trải nghiệm thực tế về hạ tầng machine learning ứng dụng — điều mà chương trình học ở trường chưa đi sâu.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+**4. Cơ hội học hỏi & phát triển kỹ năng**
+Ngoài các dịch vụ AWS, mình còn học được các thói quen MLOps thực tế (quản lý version mô hình, đánh giá bằng chỉ số phù hợp, thiết kế xử lý cold-start) và cải thiện cách trình bày kiến trúc kỹ thuật cho người không chuyên.
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+**5. Văn hóa & tinh thần đồng đội**
+Làm việc cùng các thành viên, mỗi người phụ trách một phần khác nhau của cùng một hệ thống (ML, backend, frontend, DevOps), khiến việc phối hợp trở nên thực tế hơn là mang tính học thuật — vấn đề ở một phần của pipeline thực sự ảnh hưởng đến các phần khác, đây cũng là một bài học có giá trị.
 
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+**6. Chính sách của chương trình**
+Sự linh hoạt trong việc sắp xếp thời gian lên văn phòng giúp mình cân bằng được giữa thực tập và lịch học ở trường.
 
+---
 
 ### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+- **Điều hài lòng nhất:** Lần đầu tiên thấy endpoint gợi ý trả về kết quả hợp lý end-to-end, sau nhiều ngày debug bước tiền xử lý dữ liệu.
+- **Điều cần cải thiện:** Hướng dẫn rõ ràng và sớm hơn về đúng định dạng báo cáo/workshop được kỳ vọng (nhiều nhóm, kể cả nhóm mình, chỉ biết rubric chi tiết khi chương trình đã đi được một nửa).
+- **Có giới thiệu chương trình cho bạn bè không:** Có — văn hoá feedback trực tiếp từ mentor thực sự hữu ích với những ai sẵn sàng hành động theo đó.
 
+---
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+- Công bố rubric báo cáo/workshop cùng ví dụ sơ đồ kiến trúc ngay từ đầu chương trình, thay vì ở giữa chừng.
+- Cân nhắc một buổi ngắn riêng về quy ước vẽ sơ đồ kiến trúc AWS ngay từ đầu, vì đây là điểm feedback lặp lại ở hầu hết các nhóm.
+- Mình mong muốn được tiếp tục phát triển dự án này hoặc một dự án tương tự trong tương lai.

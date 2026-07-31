@@ -3,7 +3,7 @@ relativeURLs = false
 # Prefix site-relative URLs such as /images/... with baseURL so assets work
 # when this project site is served from the /movie-project-report/ subpath.
 canonifyURLs = true
-defaultContentLanguage = "vi"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 # Change the default theme to be use when building the site with Hugo
@@ -19,7 +19,7 @@ home = [ "HTML", "RSS", "JSON"]
   # Git hub repo link
   editURL = ""
   description = ""
-  author = "thienlh@thienlu.com"
+  author = "hiep.trinhgia@hcmut.edu.vn"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
