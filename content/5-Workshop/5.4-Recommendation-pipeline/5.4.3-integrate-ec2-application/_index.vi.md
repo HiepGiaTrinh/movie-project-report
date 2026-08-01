@@ -16,33 +16,13 @@ Repository không tạo EC2. Workflow GitHub Actions giả định một host đ
 4. Chọn instance type phù hợp. Môi trường workshop hiện dùng `t3.micro`; cần tăng cấu hình nếu Docker build hoặc tải thực tế vượt tài nguyên này.
 5. Tại **Key pair (login)**, chọn key pair hiện có hoặc tạo key pair mới. Lưu private key một lần tại vị trí an toàn; AWS không cho tải lại private key.
 6. Tại **Network settings**, chọn đúng VPC và subnet. Chỉ bật auto-assign public IPv4 khi workshop cần truy cập trực tiếp từ Internet.
-7. Chọn hoặc tạo security group dành riêng cho application host; cấu hình inbound rules theo mục 2 bên dưới.
+7. Chọn hoặc tạo security group dành riêng cho application host, cấu hình inbound rules chỉ cho phép đúng lưu lượng ứng dụng thực sự cần.
 8. Tại **Configure storage**, chọn volume `gp3` có dung lượng đủ cho OS, source code, Docker image, container và log. Bật EBS encryption.
 9. Mở **Advanced details** và gắn IAM instance profile của backend; không đưa access key vào user data.
 10. Review **Summary** → **Launch instance** → chờ instance state `Running` và cả hai status check đều pass.
 
 
-## 2. Cấu hình Security Group và inbound rules
-
-1. Mở **EC2** → **Security Groups** → chọn security group gắn với instance.
-2. Chọn tab **Inbound rules** → **Edit inbound rules** → **Add rule**.
-3. Chỉ thêm các rule thực sự cần thiết theo bảng dưới đây.
-4. Chọn **Save rules** và kiểm tra lại từ một client được phép.
-
-| Mục đích | Type/Protocol | Port | Source khuyến nghị |
-|---|---|---:|---|
-| Quản trị Linux | SSH / TCP | 22 | `<ADMIN_PUBLIC_IP>/32`, VPN CIDR hoặc bastion security group; không dùng `0.0.0.0/0` |
-| Web không TLS | HTTP / TCP | 80 | `0.0.0.0/0` và `::/0` chỉ khi website cần public |
-| Web có TLS | HTTPS / TCP | 443 | `0.0.0.0/0` và `::/0` khi website cần public |
-| Application port trực tiếp | Custom TCP | `<APPLICATION_PORT>` | Security group của load balancer/reverse proxy hoặc CIDR kiểm thử được phê duyệt |
-| Backend nội bộ | Custom TCP | `<BACKEND_PORT>` | Không tạo public rule nếu frontend/reverse proxy chạy cùng host |
-
-![Inbound rules của EC2 security group](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-security-group-inbound-rules.png)
-
-*Security group `launch-wizard-1` có ba inbound TCP rules cho SSH port `22`, frontend port `5173` và backend port `8000`.*
-
-
-## 3. Chuẩn bị EC2 host
+## 2. Chuẩn bị EC2 host
 
 Platform owner cần cung cấp:
 
@@ -67,7 +47,7 @@ Các thông tin AMI, instance type, VPC, subnet, security group, disk, DNS và T
 
 *Phiên SSH xác nhận có thể truy cập Ubuntu 24.04.4 LTS trên EC2.*
 
-## 4. Cấu hình ứng dụng
+## 3. Cấu hình ứng dụng
 
 Đặt `.env` trực tiếp trên EC2 theo quy trình quản lý secret được phê duyệt. Không commit `.env` và không tạo file này trong GitHub Actions.
 
@@ -77,7 +57,7 @@ Trên EC2, ưu tiên instance profile để AWS SDK nhận credential qua defaul
 
 *Repository đã cấu hình deploy key `EC2 Deploy` ở chế độ read-only để host lấy source code.*
 
-## 5. Workflow triển khai
+## 4. Workflow triển khai
 
 Khi push branch `main`, GitHub Actions:
 
@@ -91,7 +71,7 @@ Khi push branch `main`, GitHub Actions:
 ![GitHub Actions workflow build thành công](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 
 
-## 6. Runtime integration
+## 5. Runtime integration
 
 Khi backend khởi động, nó:
 
@@ -104,7 +84,7 @@ Khi backend khởi động, nó:
 
 Khi endpoint không khả dụng, guest API vẫn có thể chạy; personalized cache miss trả lỗi có kiểm soát.
 
-## 7. Khởi động ứng dụng
+## 6. Khởi động ứng dụng
 
 Tại application directory trên EC2, sau khi code, `.env`, Docker và IAM role đã sẵn sàng:
 
@@ -115,7 +95,7 @@ docker compose ps
 docker compose logs backend --tail 100
 ```
 
-## 8. Kiểm tra service
+## 7. Kiểm tra service
 
 ```bash
 curl -f "http://127.0.0.1:<BACKEND_PORT>/health"
@@ -135,7 +115,7 @@ Kết quả mong đợi:
 ![Swagger UI của Movie Recommendation API chạy trên EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-fastapi-swagger-ui.png)
 
 
-## 9. Phân biệt EC2 application và EC2 retraining
+## 8. Phân biệt EC2 application và EC2 retraining
 
 `ml/deploy/ec2_bootstrap.sh` cấu hình một systemd timer cho retraining, không phải web deployment. Template này hiện cần sửa:
 
