@@ -6,14 +6,6 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-Repository sử dụng default credential provider chain của boto3:
-
-- Developer nên dùng AWS IAM Identity Center hoặc profile.
-- EC2 sử dụng instance profile.
-- SageMaker sử dụng execution role.
-
-Exact role name, JSON policy, trust relationship và ARN chưa được lưu trong repository.
-
 ![Luồng credential giữa developer, EC2 và các dịch vụ AWS](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
 
 *Developer profile hoặc EC2 instance profile cung cấp credential cho boto3; JWT secret được quản lý riêng cho FastAPI authentication.*
@@ -123,15 +115,7 @@ Không gắn `AdministratorAccess` hoặc `IAMFullAccess` để bỏ qua lỗi p
 Không sử dụng `Action: "*"` hoặc `Resource: "*"` chỉ để làm cho hệ thống chạy. Policy production phải được security owner review.
 {{% /notice %}}
 
-## 6. Nhận xét về least privilege
-
-- Backend HTTP runtime không cần `DeleteItem` vì hiện không có delete API.
-- Quyền S3 upload/download nên thuộc tooling role riêng thay vì mở rộng web runtime role.
-- `Users` hiện cần scan cho case-insensitive login/uniqueness vì không có identity GSI.
-- Principal triển khai SageMaker và SageMaker execution role là hai principal khác nhau.
-- `iam:PassRole` chỉ được phép đối với đúng execution role.
-
-## 7. Bảo mật ứng dụng
+## 6. Bảo mật ứng dụng
 
 - Password sử dụng PBKDF2-HMAC-SHA256 với random salt và số vòng lặp được cấu hình.
 - JWT HS256 kiểm tra signature, issuer, audience và expiry.
@@ -140,51 +124,9 @@ Không sử dụng `Action: "*"` hoặc `Resource: "*"` chỉ để làm cho h�
 - Frontend lưu access token trong `localStorage`, vì vậy cần kiểm soát XSS.
 - Logout hiện không revoke JWT ở server; endpoint chỉ trả `204`.
 
-## 8. Positive test
+## 7. Cấu hình Amazon CloudWatch
 
-Với backend role đã được gắn đúng:
-
-```bash
-aws sts get-caller-identity \
-  --region "<AWS_REGION>"
-
-aws dynamodb describe-table \
-  --table-name "<AUTHORIZED_TABLE_NAME>" \
-  --region "<AWS_REGION>"
-
-aws sagemaker describe-endpoint \
-  --endpoint-name "<SAGEMAKER_ENDPOINT_NAME>" \
-  --region "<AWS_REGION>"
-```
-
-Tiêu chí đạt: cả ba thao tác được phê duyệt đều thành công.
-
-{{% notice note %}}
-`sts:GetCallerIdentity` có hành vi đặc biệt và không đủ để chứng minh principal có quyền truy cập DynamoDB, S3 hoặc SageMaker.
-{{% /notice %}}
-
-<!-- IMAGE-5.5-01: IAM role với policy giới hạn tài nguyên, đã che ARN/account ID. -->
-
-## 9. Negative test an toàn
-
-Security owner phải cung cấp một resource ngoài phạm vi được phê duyệt dành riêng cho kiểm thử:
-
-```bash
-aws dynamodb describe-table \
-  --table-name "<APPROVED_OUT_OF_SCOPE_TEST_TABLE>" \
-  --region "<AWS_REGION>"
-```
-
-Kết quả mong đợi: `AccessDeniedException`.
-
-`ResourceNotFoundException` không chứng minh least privilege vì resource có thể không tồn tại.
-
-<!-- IMAGE-5.5-02: AccessDenied khi truy cập resource kiểm thử ngoài phạm vi. -->
-
-
-## 10. Cấu hình Amazon CloudWatch
-
-### 10.1. Tạo log groups và retention
+### 7.1. Tạo log groups và retention
 
 1. Mở **CloudWatch** → **Logs** → **Log groups** → **Create log group**.
 2. Tạo các log group theo môi trường, ví dụ:
@@ -200,7 +142,7 @@ SageMaker tự tạo log group/stream cho Processing Job và Endpoint khi execut
 ![Các CloudWatch log group của SageMaker Endpoint và Processing Jobs](/images/5-Workshop/5.5-IAM-security/cloudwatch-sagemaker-log-groups.png)
 
 
-### 10.2. Cài CloudWatch Agent trên EC2
+### 7.2. Cài CloudWatch Agent trên EC2
 
 1. Xác nhận EC2 instance profile có `CloudWatchAgentServerPolicy` hoặc policy tối thiểu tương đương.
 2. Mở **CloudWatch** → **Getting Started** → quy trình **Install and configure CloudWatch agent**.
@@ -214,7 +156,7 @@ Nếu tùy chọn cài agent bằng Console không có trong Region, dùng AWS S
 
 <!-- IMAGE-5.5-CLOUDWATCH-01: CloudWatch Agent configuration và log groups có log stream từ EC2/backend. -->
 
-### 10.3. Tạo alarms
+### 7.3. Tạo alarms
 
 1. Vào **CloudWatch** → **Alarms** → **All alarms** → **Create alarm**.
 2. Chọn **Select metric**, chọn service/resource và metric cần giám sát.
@@ -235,9 +177,9 @@ Các threshold trên chỉ là điểm bắt đầu cho workshop, không phải 
 
 <!-- IMAGE-5.5-CLOUDWATCH-02: CloudWatch alarm ở trạng thái OK và SNS notification đã cấu hình. -->
 
-## 11. Cấu hình AWS Budgets
+## 8. Cấu hình AWS Budgets
 
-### 11.1. Cho phép IAM truy cập Billing
+### 8.1. Cho phép IAM truy cập Billing
 
 1. Đăng nhập root user cho thao tác một lần này.
 2. Mở **Billing and Cost Management** → phần account/billing access settings.
@@ -245,7 +187,7 @@ Các threshold trên chỉ là điểm bắt đầu cho workshop, không phải 
 4. Đăng xuất root ngay sau khi hoàn tất.
 5. Gắn policy Budgets/Billing tối thiểu cho operator role hoặc group. Bật IAM access không tự cấp permission.
 
-### 11.2. Tạo monthly cost budget
+### 8.2. Tạo monthly cost budget
 
 1. Mở **Billing and Cost Management** → **Budgets** → **Create budget**.
 2. Chọn **Customize (advanced)** → **Cost budget** → **Next**.

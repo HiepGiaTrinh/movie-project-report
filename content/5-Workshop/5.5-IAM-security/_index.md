@@ -6,14 +6,6 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-The repository uses boto3's default credential provider chain:
-
-- Developers should use AWS IAM Identity Center or a profile.
-- EC2 uses an instance profile.
-- SageMaker uses an execution role.
-
-The exact role names, JSON policies, trust relationships, and ARNs are not stored in the repository.
-
 ![Credential flow between developers, EC2, and AWS services](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
 
 *A developer profile or EC2 instance profile provides credentials to boto3; the JWT secret is managed separately for FastAPI authentication.*
@@ -123,15 +115,7 @@ Do not attach `AdministratorAccess` or `IAMFullAccess` to bypass permission erro
 Do not use `Action: "*"` or `Resource: "*"` merely to make the system work. Production policies must be reviewed by the security owner.
 {{% /notice %}}
 
-## 6. Least-Privilege Observations
-
-- The backend HTTP runtime does not require `DeleteItem` because there is currently no delete API.
-- S3 upload/download permissions should belong to a separate tooling role instead of expanding the web runtime role.
-- `Users` currently requires a scan for case-insensitive login/uniqueness because there is no identity GSI.
-- The SageMaker deployment principal and the SageMaker execution role are two different principals.
-- `iam:PassRole` should be permitted only for the correct execution role.
-
-## 7. Application Security
+## 6. Application Security
 
 - Passwords use PBKDF2-HMAC-SHA256 with a random salt and a configured iteration count.
 - HS256 JWTs validate the signature, issuer, audience, and expiry.
@@ -140,50 +124,9 @@ Do not use `Action: "*"` or `Resource: "*"` merely to make the system work. Prod
 - The frontend stores the access token in `localStorage`, so XSS must be controlled.
 - Logout currently does not revoke the JWT on the server; the endpoint only returns `204`.
 
-## 8. Positive Test
+## 7. Configure Amazon CloudWatch
 
-With the correct backend role attached:
-
-```bash
-aws sts get-caller-identity \
-  --region "<AWS_REGION>"
-
-aws dynamodb describe-table \
-  --table-name "<AUTHORIZED_TABLE_NAME>" \
-  --region "<AWS_REGION>"
-
-aws sagemaker describe-endpoint \
-  --endpoint-name "<SAGEMAKER_ENDPOINT_NAME>" \
-  --region "<AWS_REGION>"
-```
-
-Pass criterion: all three approved operations succeed.
-
-{{% notice note %}}
-`sts:GetCallerIdentity` has special behavior and is not sufficient to prove that the principal can access DynamoDB, S3, or SageMaker.
-{{% /notice %}}
-
-<!-- IMAGE-5.5-01: IAM role with a resource-restricted policy; ARN/account ID redacted. -->
-
-## 9. Safe Negative Test
-
-The security owner must provide a dedicated resource outside the approved scope for testing:
-
-```bash
-aws dynamodb describe-table \
-  --table-name "<APPROVED_OUT_OF_SCOPE_TEST_TABLE>" \
-  --region "<AWS_REGION>"
-```
-
-Expected result: `AccessDeniedException`.
-
-`ResourceNotFoundException` does not prove least privilege because the resource might not exist.
-
-<!-- IMAGE-5.5-02: AccessDenied when accessing an out-of-scope test resource. -->
-
-## 10. Configure Amazon CloudWatch
-
-### 10.1. Create Log Groups and Set Retention
+### 7.1. Create Log Groups and Set Retention
 
 1. Open **CloudWatch** → **Logs** → **Log groups** → **Create log group**.
 2. Create environment-specific log groups, for example:
@@ -198,7 +141,7 @@ SageMaker automatically creates log groups/streams for Processing Jobs and Endpo
 
 ![CloudWatch log groups for SageMaker Endpoints and Processing Jobs](/images/5-Workshop/5.5-IAM-security/cloudwatch-sagemaker-log-groups.png)
 
-### 10.2. Install the CloudWatch Agent on EC2
+### 7.2. Install the CloudWatch Agent on EC2
 
 1. Confirm that the EC2 instance profile has `CloudWatchAgentServerPolicy` or an equivalent least-privilege policy.
 2. Open **CloudWatch** → **Getting Started** → the **Install and configure CloudWatch agent** workflow.
@@ -212,7 +155,7 @@ If the Console option for installing the agent is unavailable in the Region, use
 
 <!-- IMAGE-5.5-CLOUDWATCH-01: CloudWatch Agent configuration and log groups with log streams from EC2/backend. -->
 
-### 10.3. Create Alarms
+### 7.3. Create Alarms
 
 1. Open **CloudWatch** → **Alarms** → **All alarms** → **Create alarm**.
 2. Select **Select metric**, then choose the service/resource and metric to monitor.
@@ -233,9 +176,9 @@ These thresholds are only starting points for the workshop, not production SLAs.
 
 <!-- IMAGE-5.5-CLOUDWATCH-02: CloudWatch alarm in the OK state with an SNS notification configured. -->
 
-## 11. Configure AWS Budgets
+## 8. Configure AWS Budgets
 
-### 11.1. Allow IAM Access to Billing
+### 8.1. Allow IAM Access to Billing
 
 1. Sign in as the root user for this one-time operation.
 2. Open **Billing and Cost Management** → the account/billing access settings.
@@ -243,7 +186,7 @@ These thresholds are only starting points for the workshop, not production SLAs.
 4. Sign out of the root user immediately after completion.
 5. Attach a least-privilege Budgets/Billing policy to the operator role or group. Enabling IAM access does not grant permissions automatically.
 
-### 11.2. Create a Monthly Cost Budget
+### 8.2. Create a Monthly Cost Budget
 
 1. Open **Billing and Cost Management** → **Budgets** → **Create budget**.
 2. Select **Customize (advanced)** → **Cost budget** → **Next**.
