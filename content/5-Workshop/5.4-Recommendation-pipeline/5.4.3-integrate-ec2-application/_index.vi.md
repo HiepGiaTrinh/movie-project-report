@@ -59,14 +59,17 @@ Trên EC2, ưu tiên instance profile để AWS SDK nhận credential qua defaul
 
 ## 4. Workflow triển khai
 
-Khi push branch `main`, GitHub Actions:
+Khi push branch `main`, workflow `deploy.yml` chạy hai job **Build frontend** và **Build backend** song song, sau đó tới job **Deploy to EC2**:
 
+**Build frontend / Build backend** (chạy song song)
 1. Build frontend.
 2. Cài dependency backend và chạy `compileall`.
-3. SSH vào EC2.
-4. Chuyển tới `EC2_APP_DIR`.
-5. Pull source từ `main`.
-6. Chạy Docker Compose.
+
+**Deploy to EC2** (chạy sau khi cả hai build job hoàn tất)
+1. SSH vào EC2.
+2. Chuyển tới `EC2_APP_DIR`.
+3. Pull source từ `main`.
+4. Chạy Docker Compose.
 
 ![GitHub Actions workflow build thành công](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 
