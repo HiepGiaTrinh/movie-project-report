@@ -12,7 +12,7 @@ This section collects the source code, demo, official AWS documentation, and rep
 
 | Resource | Link |
 |---|---|
-| Movie recommendation source code | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
+| Movie recommendation source code | [GitHub - movie-recommendation](https://github.com/tanghongai1704/movie-recommendation/tree/main) |
 | Model processing / ML source code | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
 
 ## Demo

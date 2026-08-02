@@ -12,7 +12,7 @@ Mục này tập hợp mã nguồn, bản demo, tài liệu AWS chính thức v�
 
 | Tài nguyên | Liên kết |
 |---|---|
-| Mã nguồn hệ thống gợi ý phim | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
+| Mã nguồn hệ thống gợi ý phim | [GitHub - movie-recommendation](https://github.com/tanghongai1704/movie-recommendation/tree/main) |
 | Mã nguồn hệ thống xử lý mô hình | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
 
 ## Demo
